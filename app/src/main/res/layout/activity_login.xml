@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <Button
+        android:id="@+id/masuk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150dp"
+        android:height="40dp"
+        android:background="#ec73a3"
+        android:fontFamily="@font/Roboto-Regular"
+        android:gravity="center"
+        android:text="Masuk"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintCircleRadius="10dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="402dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:fontFamily="@font/Roboto-Regular"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="false"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="145dp"
+        android:layout_height="203dp"
+        app:srcCompat="@mipmap/logo1"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/Roboto-Regular"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:singleLine="false"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="244dp" />
+
+</android.support.constraint.ConstraintLayout>
