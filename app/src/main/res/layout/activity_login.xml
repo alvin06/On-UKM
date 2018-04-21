@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:width="150dp"
         android:height="40dp"
-        android:background="#ec73a3"
+        android:background="#ec52a3"
         android:fontFamily="@font/Roboto-Regular"
         android:gravity="center"
         android:text="Masuk"
