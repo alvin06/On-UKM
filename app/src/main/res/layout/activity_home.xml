@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-
+    <!--button bawah-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/tab_homeOn"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/tab_home" />
 
 </android.support.constraint.ConstraintLayout>

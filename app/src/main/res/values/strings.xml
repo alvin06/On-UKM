@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">On-UKM</string>
+    <string name="title_activity_home">On-UKM</string>
+    <string name="title_activity_main">On-UKM</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity_profile">On-UKM</string>
 </resources>

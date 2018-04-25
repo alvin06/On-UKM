@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/man"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="172dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:weightSum="4"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="143dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/angkatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Angkatan"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="145dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="107dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="52"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Nama"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="178dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="107dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Yoga Permana Snowboy"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/nim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="NIM"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="209dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="107dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="G64150027"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/no_hp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="No. HP"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="246dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="107dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="081345678910"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="-6dp"
+        android:layout_toStartOf="@+id/imageView2"
+        android:background="@drawable/roundedbutton"
+        android:text="Edit"
+        android:textColor="#ffffff"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/edit"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/imageView2"
+        android:background="@drawable/roundedbuttonWarning"
+        android:text="Logout"
+        android:textColor="#ffffff"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/tab_homeOn"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/tab_home" />
+
+</RelativeLayout>

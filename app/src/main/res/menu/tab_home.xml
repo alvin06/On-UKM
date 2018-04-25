@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="">
+
+    <item
+        android:id="@+id/tab_home"
+        android:icon="@drawable/home" />
+
+    <item
+        android:id="@+id/tab_notifOff"
+        android:icon="@drawable/bella" />
+
+    <item
+        android:id="@+id/tab_profileOff"
+        android:icon="@drawable/mana" />
+
+</menu>
