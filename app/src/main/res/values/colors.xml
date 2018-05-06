@@ -6,4 +6,5 @@
     <color name="colorPinkOn">#ec52a3</color>
     <color name="colorPinkDark">#ec73a3</color>
     <color name="colorWarning">#f03434</color>
+    <color name="white">#ffffff</color>
 </resources>

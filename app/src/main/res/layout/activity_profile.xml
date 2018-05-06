@@ -54,7 +54,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="107dp" />
 
             <TextView
                 android:layout_width="132dp"
@@ -65,7 +67,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="52"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp" />
 
         </RelativeLayout>
 
@@ -94,7 +98,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="107dp" />
 
             <TextView
                 android:layout_width="132dp"
@@ -105,7 +111,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Yoga Permana Snowboy"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp" />
 
         </RelativeLayout>
 
@@ -134,7 +142,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="107dp" />
 
             <TextView
                 android:layout_width="132dp"
@@ -145,7 +155,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="G64150027"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -173,7 +185,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginLeft="107dp"
+                android:layout_alignParentLeft="true" />
 
             <TextView
                 android:layout_width="132dp"
@@ -184,7 +198,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="081345678910"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="0dp" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -201,7 +217,9 @@
         android:textColor="#ffffff"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="359dp" />
+        tools:layout_editor_absoluteY="359dp"
+        android:layout_marginRight="-6dp"
+        android:layout_toLeftOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/logout"
@@ -210,12 +228,14 @@
         android:layout_alignTop="@+id/edit"
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/imageView2"
-        android:background="@drawable/roundedbuttonWarning"
+        android:background="@drawable/roundedbuttonwarning"
         android:text="Logout"
         android:textColor="#ffffff"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="359dp" />
+        tools:layout_editor_absoluteY="359dp"
+        android:layout_marginLeft="0dp"
+        android:layout_toRightOf="@+id/imageView2" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/tab_homeOn"
@@ -224,11 +244,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="?android:attr/windowBackground"
-        app:itemBackground="#ffffff"
+        app:itemBackground="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/tab_home" />
+        app:menu="@menu/tab_home"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

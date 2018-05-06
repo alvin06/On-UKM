@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="wrap_content">
 
     <item
         android:id="@+id/tab_homeOff"
-        android:icon="@drawable/homea" />
+        android:icon="@drawable/homea"
+        android:title="home" />
 
     <item
         android:id="@+id/tab_notif"
-        android:icon="@drawable/bell" />
+        android:icon="@drawable/bell"
+        android:title="bell" />
 
     <item
         android:id="@+id/tab_profileOff"
-        android:icon="@drawable/mana" />
+        android:icon="@drawable/mana"
+        android:title="user" />
 
 </menu>
