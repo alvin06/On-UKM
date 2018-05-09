@@ -5,30 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UKMActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="513dp"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="54dp"
         android:orientation="vertical"
-        android:weightSum="2"
-        android:layout_alignParentLeft="true">
+        android:weightSum="2">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="wrap_content"
             android:paddingBottom="@dimen/activity_horizontal_margin">
 
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="11dp"
-                android:src="@drawable/icon"
                 android:layout_marginLeft="11dp"
-                android:layout_alignParentLeft="true" />
+                android:layout_marginStart="11dp"
+                android:src="@drawable/icon" />
 
             <TextView
                 android:id="@+id/textViewUkm"
@@ -38,17 +43,17 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text=""
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="13dp"
-                android:orientation="vertical"
                 android:layout_marginRight="13dp"
-                android:layout_alignParentRight="true">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,6 +103,7 @@
                     android:textSize="18sp" />
 
                 <Button
+                    android:id="@+id/buttonDaftar"
                     android:layout_width="114dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -105,8 +111,7 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Register"
                     android:textColor="#ffffff"
-                    android:textSize="18sp"
-                    android:id="@+id/buttonDaftar"/>
+                    android:textSize="18sp" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
