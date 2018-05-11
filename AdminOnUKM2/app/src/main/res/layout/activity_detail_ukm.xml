@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailUKMActivity"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/textViewTitleDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detail UKM"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewUKMName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama UKM : "
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textViewTitleDetail"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewJadwalLatihan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jadwal Latihan : "
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textViewUKMName"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kategori : "
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textViewJadwalLatihan"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewPembina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pembina : "
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textViewKategori"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewTotAnggonta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Anggota :"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textViewPembina"
+        android:layout_margin="8dp"/>
+
+    <Button
+        android:id="@+id/btnLihatAnggota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Lihat Anggota"
+        android:layout_below="@+id/textViewTotAnggonta"/>
+
+    <Button
+        android:id="@+id/btnEditUKM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Ubah Data UKM"
+        android:layout_below="@+id/btnLihatAnggota"/>
+
+</RelativeLayout>

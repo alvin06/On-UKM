@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ilhamk.adminonukm">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".TambahUKMActivity" />
+        <activity android:name=".TambahUserActivity" />
+        <activity android:name=".LihatUKMActivity" />
+        <activity android:name=".LihatUserActivity" />
+        <activity android:name=".TambahMhsActivity" />
+        <activity android:name=".DetailUKMActivity" />
+        <activity android:name=".LihatAnggotaActivity" />
+        <activity android:name=".EditUKMActivity" />
+        <activity android:name=".DetailUserActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AdminOnUKM</string>
+
+    <array name="tipe">
+        <item>DPM</item>
+        <item>Biasa</item>
+    </array>
+
+    <array name="role">
+        <item>Ketua</item>
+        <item>Wakil Ketua</item>
+        <item>Sekretaris</item>
+        <item>Bendahara</item>
+        <item>Anggota</item>
+    </array>
+
+    <array name="kategori">
+        <item>Bidang Jurnalistik</item>
+        <item>Bidang Keilmuan</item>
+        <item>Bidang Khusus</item>
+        <item>Kerohanian</item>
+        <item>Olahraga Beladiri</item>
+        <item>Olahraga Non Beladiri</item>
+        <item>Seni</item>
+    </array>
+</resources>
