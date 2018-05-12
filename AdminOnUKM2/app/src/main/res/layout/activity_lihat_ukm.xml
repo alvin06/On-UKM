@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".LihatUKMActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
     <TextView
         android:id="@+id/listUkmTitle"
+        android:layout_below="@id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="UKM IPB"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textSize="18dp"
         android:layout_margin="8dp"/>
 

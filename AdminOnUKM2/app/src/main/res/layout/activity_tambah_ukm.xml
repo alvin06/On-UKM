@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".TambahUKMActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/addUKMTitle"
@@ -18,6 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Tambah UKM"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -25,21 +33,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Nama UKM" />
+            android:hint="Nama UKM"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"/>
 
         <EditText
             android:id="@+id/editTextJadwal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Jadwal Latihan" />
+            android:hint="Jadwal Latihan"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"/>
 
         <EditText
             android:id="@+id/editTextPembina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Pembina UKM" />
+            android:hint="Pembina UKM"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"/>
 
         <Spinner
             android:id="@+id/spinnerKategori"
@@ -54,7 +68,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Tambahkan" />
+            android:text="Tambahkan"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/white"
+            android:background="@drawable/roundedbuttonlogin"/>
 
     </LinearLayout>
 

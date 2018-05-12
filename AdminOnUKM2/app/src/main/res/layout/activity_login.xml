@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <LinearLayout
         android:layout_margin="15dp"
         android:layout_centerHorizontal="true"
@@ -18,7 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Login"
+            android:text="LOGIN"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
             android:id="@+id/signInTitle"
             android:layout_gravity="center_horizontal"/>
 
@@ -26,6 +32,7 @@
             android:layout_margin="15dp"
             android:inputType="textEmailAddress"
             android:hint="Enter your email"
+            android:fontFamily="@font/roboto_regular"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -34,16 +41,23 @@
             android:layout_margin="15dp"
             android:inputType="textPassword"
             android:hint="Enter your password"
+            android:fontFamily="@font/roboto_regular"
             android:id="@+id/editTextPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
-            android:layout_margin="15dp"
             android:id="@+id/btnLogin"
-            android:text="Sign In"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:width="150dp"
+            android:height="40dp"
+            android:background="@drawable/roundedbuttonlogin"
+            android:gravity="center"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

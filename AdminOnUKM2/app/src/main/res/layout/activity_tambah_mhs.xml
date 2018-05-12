@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TambahMhsActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="510dp"
+        android:layout_below="@id/toolbar"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
@@ -19,6 +24,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:text="Tambah Mahasiswa"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
+            android:layout_marginBottom=""
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -26,38 +34,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:inputType="textEmailAddress"
-            android:hint="Email Mahasiswa" />
+            android:hint="Email Mahasiswa"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editTextPassM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="Password"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
+            android:inputType="textPassword" />
 
         <!--<EditText-->
-            <!--android:id="@+id/editTextNamaM"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="Nama Mahasiswa" />-->
+        <!--android:id="@+id/editTextNamaM"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:hint="Nama Mahasiswa" />-->
 
         <!--<EditText-->
-            <!--android:id="@+id/editTextNIMM"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="NIM Mahasiswa" />-->
+        <!--android:id="@+id/editTextNIMM"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:hint="NIM Mahasiswa" />-->
 
         <!--<EditText-->
-            <!--android:id="@+id/editTextJurusanM"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="Jurusan"-->
-            <!--/>-->
+        <!--android:id="@+id/editTextJurusanM"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:hint="Jurusan"-->
+        <!--/>-->
 
         <Spinner
             android:id="@+id/spinnerSbg"
@@ -72,8 +84,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Tambahkan" />
+            android:text="Tambahkan"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/white"
+            android:background="@drawable/roundedbuttonlogin"/>
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

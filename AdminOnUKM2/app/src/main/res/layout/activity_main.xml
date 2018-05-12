@@ -4,58 +4,243 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="553dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tambah UKM"
-            android:id="@+id/btnTambahUKM"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:padding="20dp"
+            android:columnOrderPreserved="true">
+            <!--Row 1-->
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnTambahUKM"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tambah Pengurus"
-            android:id="@+id/btnTambahPengurus"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/plusukm" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tambah Mahasiswa"
-            android:id="@+id/btnTambahMhs"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="TAMBAH UKM"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnTambahPengurus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/pluspeng" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="TAMBAH PENGURUS"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <!--Row 2-->
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnTambahMhs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/plusmhs" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="TAMBAH MAHASISWA"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnLihatUKM"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/cariukm" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="LIHAT SEMUA UKM"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <!--Row 3-->
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnLihatUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/carimhs" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="LIHAT SEMUA USER"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="14dp"
+                    android:weightSum="2">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/logouts" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="LOGOUT"
+                        android:gravity="center_vertical"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPinkDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Lihat Semua UKM"
-            android:id="@+id/btnLihatUKM"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Lihat Semua User"
-            android:id="@+id/btnLihatUser"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/btnLogout"/>
+            </android.support.v7.widget.CardView>
+        </GridLayout>
 
     </LinearLayout>
 

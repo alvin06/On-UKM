@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".TambahUserActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/addPengurus"
@@ -19,6 +25,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:text="Pengurus"
+            android:textColor="@color/colorPinkOn"
+            android:fontFamily="@font/roboto_regular"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -27,7 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:inputType="textEmailAddress"
-            android:hint="Email User" />
+            android:hint="Email User"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"/>
 
         <EditText
             android:id="@+id/editTextPassP"
@@ -35,7 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:inputType="textPassword"
-            android:hint="Password User" />
+            android:hint="Password User"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"/>
 
         <!--<EditText-->
             <!--android:id="@+id/editTextNamaUser"-->
@@ -80,7 +92,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:onClick="addUser"
-            android:text="Tambahkan" />
+            android:text="Tambahkan"
+            android:background="@drawable/roundedbuttonlogin"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

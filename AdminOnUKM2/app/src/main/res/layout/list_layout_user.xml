@@ -3,9 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
     <LinearLayout
         android:layout_width="191dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
 
         <TextView
             android:id="@+id/textViewNamaUser"
@@ -13,6 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="nama user"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPinkOn"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
     </LinearLayout>
 

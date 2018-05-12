@@ -4,32 +4,233 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailUKMActivity"
-    android:layout_margin="8dp">
+    tools:context=".DetailUKMActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/textViewTitleDetail"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Detail UKM"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_margin="8dp"/>
 
-    <TextView
-        android:id="@+id/textViewUKMName"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="346dp"
         android:layout_height="wrap_content"
-        android:text="Nama UKM : "
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewTitleDetail"
-        android:layout_margin="8dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-8dp"
+        android:orientation="vertical"
+        android:weightSum="5">
 
-    <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:text="Nama UKM "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/textViewUKMName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewUKMName"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:text="Jadwal Latihan "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/textViewJadwalLatihan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Kategori "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/textViewKategori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Pembina "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/textViewPembina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewPembina"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Total Anggota "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/textViewTotAnggonta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+   <!-- <TextView
         android:id="@+id/textViewJadwalLatihan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Jadwal Latihan : "
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/textViewUKMName"
         android:layout_margin="8dp"/>
@@ -39,6 +240,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kategori : "
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/textViewJadwalLatihan"
         android:layout_margin="8dp"/>
@@ -48,6 +251,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pembina : "
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/textViewKategori"
         android:layout_margin="8dp"/>
@@ -56,25 +261,39 @@
         android:id="@+id/textViewTotAnggonta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total Anggota :"
+        android:text="Total Anggota : "
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/colorPinkOn"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/textViewPembina"
-        android:layout_margin="8dp"/>
+        android:layout_margin="8dp"/>-->
 
     <Button
         android:id="@+id/btnLihatAnggota"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="117dp"
+        android:layout_marginStart="41dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/roboto_regular"
         android:text="Lihat Anggota"
-        android:layout_below="@+id/textViewTotAnggonta"/>
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnEditUKM"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnLihatAnggota"
+        android:layout_below="@id/textViewTotAnggonta"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/roundedbuttonsuccess"
+        android:fontFamily="@font/roboto_regular"
         android:text="Ubah Data UKM"
-        android:layout_below="@+id/btnLihatAnggota"/>
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
