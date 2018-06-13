@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, LoginActivity.class));
         }
         else {
-
             firebaseAuth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -73,6 +72,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (task.isSuccessful()) {
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                Toast.makeText(getApplicationContext(), "Login Success",
+                                        Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(LoginActivity.this, "Couldn't login. Please" +
                                         "check your email and password", Toast.LENGTH_SHORT).show();

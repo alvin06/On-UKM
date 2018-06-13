@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
+        layout="@layout/toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:text="Tambah Mahasiswa"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
-            android:layout_marginBottom=""
+            android:layout_marginBottom="8dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -48,28 +48,6 @@
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
             android:inputType="textPassword" />
-
-        <!--<EditText-->
-        <!--android:id="@+id/editTextNamaM"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="8dp"-->
-        <!--android:hint="Nama Mahasiswa" />-->
-
-        <!--<EditText-->
-        <!--android:id="@+id/editTextNIMM"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="8dp"-->
-        <!--android:hint="NIM Mahasiswa" />-->
-
-        <!--<EditText-->
-        <!--android:id="@+id/editTextJurusanM"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="8dp"-->
-        <!--android:hint="Jurusan"-->
-        <!--/>-->
 
         <Spinner
             android:id="@+id/spinnerSbg"

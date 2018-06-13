@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
+    <!--<include-->
+        <!--android:id="@+id/toolbar"-->
+        <!--layout="@layout/toolbar"/>-->
 
     <LinearLayout
         android:layout_width="191dp"
@@ -20,7 +20,7 @@
             android:text="nama user"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            android:textSize="14dp" />
     </LinearLayout>
 
 </RelativeLayout>

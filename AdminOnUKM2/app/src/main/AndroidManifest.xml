@@ -25,7 +25,8 @@
         <activity android:name=".DetailUKMActivity" />
         <activity android:name=".LihatAnggotaActivity" />
         <activity android:name=".EditUKMActivity" />
-        <activity android:name=".DetailUserActivity"></activity>
+        <activity android:name=".DetailUserActivity" />
+        <activity android:name=".EditUserActivity"></activity>
     </application>
 
 </manifest>

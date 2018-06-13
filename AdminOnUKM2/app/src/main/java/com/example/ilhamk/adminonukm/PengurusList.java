@@ -2,25 +2,23 @@ package com.example.ilhamk.adminonukm;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
 import java.util.List;
 
-public class UserList extends ArrayAdapter<UserInformation> {
+public class PengurusList extends ArrayAdapter<PengurusInformation>{
 
     private Activity context;
-    private List<UserInformation> userList;
+    private List<PengurusInformation> anggotaList;
 
-    public UserList(Activity context, List<UserInformation> userList){
-        super(context, R.layout.list_layout_user, userList);
+    public PengurusList(Activity context, List<PengurusInformation> anggotaList){
+        super(context, R.layout.list_layout_user, anggotaList);
         this.context = context;
-        this.userList = userList;
+        this.anggotaList = anggotaList;
     }
 
     @NonNull
@@ -36,9 +34,9 @@ public class UserList extends ArrayAdapter<UserInformation> {
 
         TextView textViewNamaUser = (TextView) listViewItem.findViewById(R.id.textViewNamaUser);
 
-        UserInformation userInformation = userList.get(pos);
+        PengurusInformation anggotaInformation = anggotaList.get(pos);
 
-        textViewNamaUser.setText(userInformation.getNama() + '\n' + userInformation.getRole());
+        textViewNamaUser.setText(anggotaInformation.getNama() + '\n' + anggotaInformation.getJabatan());
 
         return listViewItem;
     }

@@ -150,7 +150,7 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                                 });
 
                         //data pengurus
-                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, UKM_ID, id_user, emailP);
+                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, UKM_ID, id_user, emailP, nama);
                         //push data ke pengurus
                         databaseReference.child("pengurus").child(UKM_ID).child(id_user).setValue(pengurusInformation)
                                 .addOnCompleteListener(TambahUserActivity.this, new OnCompleteListener<Void>() {

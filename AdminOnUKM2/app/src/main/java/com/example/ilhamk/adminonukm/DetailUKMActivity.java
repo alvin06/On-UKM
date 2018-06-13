@@ -20,6 +20,13 @@ import java.util.List;
 
 public class DetailUKMActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public static String ID_UKM;
+    public static String NAMA_UKM;
+    public static String KATEGORI_UKM;
+    public static String PEMBINA_UKM;
+    public static String TOTANGGOTA_UKM;
+    public static String JADWAL_UKM;
+
     private TextView textViewUKMname;
     private TextView textViewJadwalLatihan;
     private TextView textViewKategori;
@@ -39,12 +46,12 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
 
         Intent intent = getIntent();
 
-        idUKM = intent.getStringExtra(LihatUKMActivity.UKM_ID);
-        namaUKM = intent.getStringExtra(LihatUKMActivity.UKM_Nama);
-        jadwalLatihan = intent.getStringExtra(LihatUKMActivity.UKM_Jadwal);
-        kategori = intent.getStringExtra(LihatUKMActivity.UKM_Kat);
-        pembina = intent.getStringExtra(LihatUKMActivity.UKM_Pembina);
-        totalAnggota = intent.getStringExtra(LihatUKMActivity.UKM_totAnggota);
+        ID_UKM = intent.getStringExtra(LihatUKMActivity.UKM_ID);
+        NAMA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Nama);
+        JADWAL_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Jadwal);
+        KATEGORI_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Kat);
+        PEMBINA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Pembina);
+        TOTANGGOTA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_totAnggota);
 
         textViewUKMname = (TextView) findViewById(R.id.textViewUKMName);
         textViewJadwalLatihan = (TextView) findViewById(R.id.textViewJadwalLatihan);
@@ -58,20 +65,32 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
         btnEditUKM.setOnClickListener(this);
         btnLihatAnggota.setOnClickListener(this);
 
-        textViewUKMname.setText("Nama UKM : " + namaUKM);
-        textViewJadwalLatihan.setText("Jadwal Latihan : " + jadwalLatihan);
-        textViewKategori.setText("Kategori : " + kategori);
-        textViewPembina.setText("Pembina : " + pembina);
-        textViewTotAnggota.setText("Total Anggota : " + totalAnggota);
+        textViewUKMname.setText(NAMA_UKM);
+        textViewJadwalLatihan.setText(JADWAL_UKM);
+        textViewKategori.setText(KATEGORI_UKM);
+        textViewPembina.setText(PEMBINA_UKM);
+        textViewTotAnggota.setText(TOTANGGOTA_UKM);
     }
 
     @Override
     public void onClick(View v) {
         if(v == btnLihatAnggota){
-            startActivity(new Intent(DetailUKMActivity.this, LihatAnggotaActivity.class ));
+            Intent intent = new Intent(getApplicationContext(), LihatAnggotaActivity.class);
+
+            intent.putExtra(ID_UKM, ID_UKM);
+            startActivity(intent);
         }
         if(v == btnEditUKM){
-            startActivity(new Intent(DetailUKMActivity.this, EditUKMActivity.class ));
+            Intent intent = new Intent(getApplicationContext(), EditUKMActivity.class);
+
+            intent.putExtra(ID_UKM, ID_UKM);
+            intent.putExtra(NAMA_UKM, NAMA_UKM);
+            intent.putExtra(KATEGORI_UKM, KATEGORI_UKM);
+            intent.putExtra(JADWAL_UKM, JADWAL_UKM);
+            intent.putExtra(PEMBINA_UKM, PEMBINA_UKM);
+            intent.putExtra(TOTANGGOTA_UKM, TOTANGGOTA_UKM);
+
+            startActivity(intent);
         }
     }
 }

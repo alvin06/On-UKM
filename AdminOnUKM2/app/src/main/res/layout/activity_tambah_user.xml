@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
+        layout="@layout/toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,28 +48,6 @@
             android:hint="Password User"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"/>
-
-        <!--<EditText-->
-            <!--android:id="@+id/editTextNamaUser"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="Nama User" />-->
-
-        <!--<EditText-->
-            <!--android:id="@+id/editTextNIM"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="NIM User" />-->
-
-        <!--<EditText-->
-            <!--android:id="@+id/editTextJurusan"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="Jurusan"-->
-            <!--/>-->
 
         <Spinner
             android:layout_width="match_parent"

@@ -5,16 +5,18 @@ public class PengurusInformation {
     private String id_ukm;
     private String id_user;
     private String email;
+    private String nama;
 
 
     public PengurusInformation() {
     }
 
-    public PengurusInformation(String jabatan, String id_ukm, String id_user, String email) {
+    public PengurusInformation(String jabatan, String id_ukm, String id_user, String email, String nama) {
         this.jabatan = jabatan;
         this.id_ukm = id_ukm;
         this.id_user = id_user;
         this.email = email;
+        this.nama = nama;
     }
 
     public String getJabatan() {
@@ -32,4 +34,6 @@ public class PengurusInformation {
     public String getEmail() {
         return email;
     }
+
+    public String getNama() { return nama; }
 }

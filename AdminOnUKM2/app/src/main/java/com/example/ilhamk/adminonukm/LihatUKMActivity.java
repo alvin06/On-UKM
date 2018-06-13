@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,8 @@ public class LihatUKMActivity extends AppCompatActivity{
     public static final String UKM_Pembina = "pembinaUKM";
     public static final String UKM_totAnggota = "totAnggotaUKM";
 
+//    private Button btnHome;
+
     private ListView listViewUKM;
     private List<UKMInformation> ukmList;
 
@@ -39,6 +43,7 @@ public class LihatUKMActivity extends AppCompatActivity{
         databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
 
         listViewUKM = (ListView) findViewById(R.id.listViewUKM);
+//        btnHome = findViewById(R.id.btnHome);
 
         ukmList = new ArrayList<>();
 
@@ -59,6 +64,13 @@ public class LihatUKMActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+//        btnHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//            }
+//        });
     }
 
     @Override
@@ -85,5 +97,10 @@ public class LihatUKMActivity extends AppCompatActivity{
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 }

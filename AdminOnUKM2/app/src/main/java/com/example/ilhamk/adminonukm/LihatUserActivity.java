@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,15 +21,12 @@ import java.util.List;
 
 public class LihatUserActivity extends AppCompatActivity{
 
-    public static final String User_ID = "idUser";
-//    public static final String UKM_ID = "idUKM";
-//    public static final String UKM_ID = "idUKM";
-//    public static final String UKM_ID = "idUKM";
-//    public static final String UKM_ID = "idUKM";
-//    public static final String UKM_ID = "idUKM";
+    public static final String USER_ID = "idUser";
 
     private ListView listViewUser;
     private List<UserInformation> userList;
+
+//    private Button btnHome;
 
     private DatabaseReference databaseReference;
 
@@ -40,6 +38,7 @@ public class LihatUserActivity extends AppCompatActivity{
         databaseReference = FirebaseDatabase.getInstance().getReference("user");
 
         listViewUser = (ListView) findViewById(R.id.listViewUser);
+//        btnHome = findViewById(R.id.btnHomee);
 
         userList = new ArrayList<>();
 
@@ -50,11 +49,18 @@ public class LihatUserActivity extends AppCompatActivity{
 
                 Intent intent = new Intent(getApplicationContext(), DetailUserActivity.class);
 
-                intent.putExtra(User_ID, user.getId_user());
+                intent.putExtra(USER_ID, user.getId_user());
 
                 startActivity(intent);
             }
         });
+
+//        btnHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//            }
+//        });
     }
 
     @Override
@@ -81,5 +87,10 @@ public class LihatUserActivity extends AppCompatActivity{
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 }

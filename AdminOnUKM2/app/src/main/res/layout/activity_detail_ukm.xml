@@ -27,10 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewTitleDetail"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="-8dp"
         android:orientation="vertical"
-        android:weightSum="5">
+        android:weightSum="5"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,27 +49,32 @@
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
+                android:id="@+id/ttk1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="140dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text=":"
+                android:text=":   "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
 
             <TextView
                 android:id="@+id/textViewUKMName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttk1"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
 
         </RelativeLayout>
 
@@ -76,7 +83,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textViewUKMName"
                 android:layout_margin="8dp"
@@ -84,30 +91,36 @@
                 android:gravity="center_vertical"
                 android:text="Jadwal Latihan "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                tools:ignore="NotSibling" />
 
             <TextView
+                android:id="@+id/ttk2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="140dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text=":"
+                android:text=":   "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
 
             <TextView
                 android:id="@+id/textViewJadwalLatihan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttk2"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -115,7 +128,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
@@ -124,27 +137,32 @@
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
+                android:id="@+id/ttk3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="140dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text=":"
+                android:text=":   "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
 
             <TextView
                 android:id="@+id/textViewKategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttk3"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -152,7 +170,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
@@ -161,27 +179,32 @@
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
+                android:id="@+id/ttk4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="140dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text=":"
+                android:text=":   "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
 
             <TextView
                 android:id="@+id/textViewPembina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttk4"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -189,84 +212,45 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textViewPembina"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Total Anggota "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                tools:ignore="NotSibling" />
 
             <TextView
+                android:id="@+id/ttk5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="140dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text=":"
+                android:text=":   "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
 
             <TextView
                 android:id="@+id/textViewTotAnggonta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttk5"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPinkOn" />
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
         </RelativeLayout>
     </LinearLayout>
-
-
-   <!-- <TextView
-        android:id="@+id/textViewJadwalLatihan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Jadwal Latihan : "
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/colorPinkOn"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_below="@+id/textViewUKMName"
-        android:layout_margin="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewKategori"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kategori : "
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/colorPinkOn"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_below="@+id/textViewJadwalLatihan"
-        android:layout_margin="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewPembina"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pembina : "
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/colorPinkOn"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_below="@+id/textViewKategori"
-        android:layout_margin="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewTotAnggonta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total Anggota : "
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/colorPinkOn"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_below="@+id/textViewPembina"
-        android:layout_margin="8dp"/>-->
 
     <Button
         android:id="@+id/btnLihatAnggota"
@@ -280,7 +264,9 @@
         android:fontFamily="@font/roboto_regular"
         android:text="Lihat Anggota"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="41dp" />
 
     <Button
         android:id="@+id/btnEditUKM"
@@ -294,6 +280,9 @@
         android:fontFamily="@font/roboto_regular"
         android:text="Ubah Data UKM"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"
+        tools:ignore="NotSibling"
+        android:layout_marginRight="40dp" />
 
 </RelativeLayout>

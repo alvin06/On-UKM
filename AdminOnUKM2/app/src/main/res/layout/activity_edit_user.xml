@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailUserActivity">
+    tools:context=".EditUserActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
+
     <TextView
-        android:id="@+id/textViewTitleDetailUser"
+        android:id="@+id/textViewTitleDetail"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detail User"
+        android:text="Edit User"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/colorPinkOn"
         android:textAlignment="center"
@@ -25,10 +26,10 @@
         android:layout_width="346dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewTitleDetailUser"
+        android:layout_below="@+id/textViewTitleDetail"
         android:layout_marginTop="-8dp"
         android:orientation="vertical"
-        android:weightSum="4"
+        android:weightSum="5"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
@@ -43,12 +44,12 @@
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="center_vertical"
-                android:text="Angkatan "
+                android:text="Nama User"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
-                android:id="@+id/titik1"
+                android:id="@+id/ttkk1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -61,11 +62,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="140dp" />
 
-            <TextView
-                android:id="@+id/textViewAngkatanU"
+            <EditText
+                android:id="@+id/editNamaUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titik1"
+                android:layout_toRightOf="@+id/ttkk1"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -88,13 +89,13 @@
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="center_vertical"
-                android:text="Nama User "
+                android:text="NIM User"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn"
                 tools:ignore="NotSibling" />
 
             <TextView
-                android:id="@+id/titik2"
+                android:id="@+id/ttkk2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -107,11 +108,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="140dp" />
 
-            <TextView
-                android:id="@+id/textViewNamaU"
+            <EditText
+                android:id="@+id/editNIMUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titik2"
+                android:layout_toRightOf="@+id/ttkk2"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -131,12 +132,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="NIM "
+                android:text="Jurusan"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
-                android:id="@+id/titik3"
+                android:id="@+id/ttkk3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -149,11 +150,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="140dp" />
 
-            <TextView
-                android:id="@+id/textViewNIMU"
+            <EditText
+                android:id="@+id/editJurusanUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titik3"
+                android:layout_toRightOf="@+id/ttkk3"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -173,12 +174,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="No. HP "
+                android:text="Angkatan"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn" />
 
             <TextView
-                android:id="@+id/titik4"
+                android:id="@+id/ttkk4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -191,11 +192,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="140dp" />
 
-            <TextView
-                android:id="@+id/textViewTelpU"
+            <EditText
+                android:id="@+id/editAngkatanUser"
+                android:inputType="number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titik4"
+                android:layout_toRightOf="@+id/ttkk4"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -204,11 +206,96 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn"
                 android:layout_marginRight="8dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Nomor Telepon"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/ttkk6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":   "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
+
+            <EditText
+                android:id="@+id/editTelpUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_toRightOf="@+id/ttkk6"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn"
+                android:layout_marginRight="8dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Role"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn" />
+
+            <TextView
+                android:id="@+id/ttkk5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="140dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":   "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPinkOn"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="140dp" />
+
+            <Spinner
+                android:id="@+id/editRoleUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ttkk5"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_centerVertical="true"
+                android:entries="@array/tipe">
+
+            </Spinner>
         </RelativeLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEditUs"
+        android:id="@+id/btnSimpanUser"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -217,26 +304,27 @@
         android:layout_marginStart="41dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/roboto_regular"
-        android:text="Edit User"
+        android:text="Simpan"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
         android:textColor="@color/white"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="41dp" />
 
     <Button
-        android:id="@+id/btnHapusUser"
+        android:id="@+id/btnBatalUser"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnEditUs"
+        android:layout_alignTop="@+id/btnSimpanUser"
         android:layout_below="@id/textViewTotAnggonta"
         android:layout_marginEnd="40dp"
         android:background="@drawable/roundedbuttonwarning"
         android:fontFamily="@font/roboto_regular"
-        android:text="Hapus User"
+        android:text="Batal"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
         android:textColor="@color/white"
         android:layout_alignParentRight="true"
+        tools:ignore="NotSibling"
         android:layout_marginRight="40dp" />
 
 </RelativeLayout>

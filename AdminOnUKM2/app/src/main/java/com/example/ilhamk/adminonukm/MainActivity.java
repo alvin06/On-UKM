@@ -4,18 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnTambahUKM;
-    private Button btnTambahPengurus;
-    private Button btnLihatUKM;
-    private Button btnLihatUser;
-    private Button btnLogout;
-    private Button btnTambahMhs;
+    private LinearLayout btnTambahUKM;
+    private LinearLayout btnTambahPengurus;
+    private LinearLayout btnLihatUKM;
+    private LinearLayout btnLihatUser;
+    private LinearLayout btnLogout;
+    private LinearLayout btnTambahMhs;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -29,12 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
 
-        btnTambahUKM = (Button) findViewById(R.id.btnTambahUKM);
-        btnTambahPengurus = (Button) findViewById(R.id.btnTambahPengurus);
-        btnTambahMhs = (Button) findViewById(R.id.btnTambahMhs);
-        btnLihatUKM = (Button) findViewById(R.id.btnLihatUKM);
-        btnLihatUser = (Button) findViewById(R.id.btnLihatUser);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnTambahUKM = (LinearLayout) findViewById(R.id.btnTambahUKM);
+        btnTambahPengurus = (LinearLayout) findViewById(R.id.btnTambahPengurus);
+        btnTambahMhs = (LinearLayout) findViewById(R.id.btnTambahMhs);
+        btnLihatUKM = (LinearLayout) findViewById(R.id.btnLihatUKM);
+        btnLihatUser = (LinearLayout) findViewById(R.id.btnLihatUser);
+        btnLogout = (LinearLayout) findViewById(R.id.btnLogout);
 
         btnLogout.setOnClickListener(this);
         btnTambahPengurus.setOnClickListener(this);

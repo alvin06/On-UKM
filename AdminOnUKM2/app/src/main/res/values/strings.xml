@@ -4,6 +4,7 @@
 
     <array name="tipe">
         <item>DPM</item>
+        <item>Pengurus</item>
         <item>Biasa</item>
     </array>
 

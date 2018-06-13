@@ -10,7 +10,9 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        tools:ignore="IncludeLayoutParam" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +20,8 @@
         android:layout_below="@id/toolbar"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentRight="true">
 
         <GridLayout
             android:layout_width="match_parent"
