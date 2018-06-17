@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Jurusan"
+                android:text="Departemen"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPinkOn" />
 
@@ -280,6 +280,7 @@
 
             <Spinner
                 android:id="@+id/editRoleUser"
+                android:theme="@style/Spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ttkk5"

@@ -272,7 +272,6 @@
         android:id="@+id/btnEditUKM"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/btnLihatAnggota"
         android:layout_below="@id/textViewTotAnggonta"
         android:layout_marginEnd="40dp"
@@ -284,5 +283,19 @@
         android:layout_alignParentRight="true"
         tools:ignore="NotSibling"
         android:layout_marginRight="40dp" />
+
+    <Button
+        android:id="@+id/btnHapusUKM"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/btnEditUKM"
+        android:layout_marginEnd="125dp"
+        android:background="@drawable/roundedbuttonwarning"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Hapus UKM"
+        android:textColor="@color/white"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
+        android:layout_marginVertical="60dp"/>
 
 </RelativeLayout>

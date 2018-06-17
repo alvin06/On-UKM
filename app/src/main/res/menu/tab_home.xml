@@ -4,16 +4,16 @@
     <item
         android:id="@+id/tab_home"
         android:icon="@drawable/home"
-        android:title="home" />
+        android:title="Beranda" />
 
     <item
         android:id="@+id/tab_notifOff"
         android:icon="@drawable/bella"
-        android:title="bell" />
+        android:title="Notifikasi" />
 
     <item
         android:id="@+id/tab_profileOff"
         android:icon="@drawable/mana"
-        android:title="user" />
+        android:title="Profil" />
 
 </menu>

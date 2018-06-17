@@ -57,6 +57,7 @@
 
         <Spinner
             android:id="@+id/spinnerKategori"
+            android:theme="@style/Spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/kategori"

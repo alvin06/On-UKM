@@ -24,8 +24,10 @@
 
     <LinearLayout
         android:layout_width="280dp"
-        android:layout_height="172dp"
-        android:layout_centerInParent="true"
+        android:layout_height="231dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="157dp"
         android:orientation="vertical"
         android:weightSum="4"
         tools:ignore="MissingConstraints"
@@ -52,28 +54,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="107dp"
                 android:layout_marginStart="107dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="107dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="52"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="0dp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -96,28 +98,72 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="107dp"
                 android:layout_marginStart="107dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="107dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Yoga Permana Snowboy"
                 android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Departemen"
+                android:textColor="@color/colorPinkDark"
                 android:textSize="18sp"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="178dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="107dp"
+                android:layout_marginStart="107dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=":"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="0dp" />
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Ilmu Komedi dan Kelucuan"
+                android:textColor="@color/colorPinkDark"
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -140,28 +186,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="107dp"
                 android:layout_marginStart="107dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="107dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="G64150027"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="0dp" />
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -183,28 +229,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="107dp"
                 android:layout_marginStart="107dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text=":"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_marginLeft="107dp"
-                android:layout_alignParentLeft="true" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="081345678910"
                 android:textColor="@color/colorPinkDark"
-                android:textSize="18sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="0dp" />
+                android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
 
