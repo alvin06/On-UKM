@@ -1,5 +1,6 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class LihatAnggotaActivity extends AppCompatActivity {
     private List<PengurusInformation> pengurusList;
 
     private DatabaseReference databaseReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class LihatAnggotaActivity extends AppCompatActivity {
         listViewAnggota = (ListView) findViewById(R.id.listViewAnggota);
 
         pengurusList = new ArrayList<>();
+
+        progressDialog = new ProgressDialog(this);
 
         listViewAnggota.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,6 +61,9 @@ public class LihatAnggotaActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        progressDialog.setMessage("Mendapatkan list pengurus UKM....");
+        progressDialog.show();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -70,6 +77,8 @@ public class LihatAnggotaActivity extends AppCompatActivity {
 
                 PengurusList adapter = new PengurusList(LihatAnggotaActivity.this, pengurusList);
                 listViewAnggota.setAdapter(adapter);
+
+                progressDialog.dismiss();
             }
 
             @Override

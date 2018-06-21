@@ -1,5 +1,6 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
     private Spinner spinnerEditKategori;
 
     private DatabaseReference databaseReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
         btnSimpanUKM.setOnClickListener(this);
         btnBatalUKM.setOnClickListener(this);
 
+        progressDialog = new ProgressDialog(this);
+
     }
 
     private void updateUKM(){
@@ -69,6 +73,9 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
         String kategori = spinnerEditKategori.getSelectedItem().toString();
         Integer totalAnggota = Integer.parseInt(totAnggota);
 
+        progressDialog.setMessage("Mengubah data UKM...");
+        progressDialog.show();
+
         UKMInformation ukmInformation = new UKMInformation(idUKM, jadwalLatihan, namaUKM, totalAnggota,
                 pembina, kategori);
         databaseReference.child(idUKM).setValue(ukmInformation)
@@ -76,6 +83,7 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            finish();
                             startActivity(new Intent(getApplicationContext(), LihatUKMActivity.class));
                             Toast.makeText(getApplicationContext(), "Berhasil Mengubah data UKM",
                                     Toast.LENGTH_SHORT).show();

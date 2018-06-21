@@ -39,6 +39,7 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
     private TextView textViewNamaU;
     private TextView textViewNIMU;
     private TextView textViewTelpU;
+    private TextView textViewJurusanU;
 
     private Button btnEditU;
     private Button btnHapusU;
@@ -63,6 +64,7 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
         textViewNamaU = (TextView) findViewById(R.id.textViewNamaU);
         textViewNIMU = (TextView) findViewById(R.id.textViewNIMU);
         textViewTelpU = (TextView) findViewById(R.id.textViewTelpU);
+        textViewJurusanU = findViewById(R.id.textViewDepartemen);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,6 +82,7 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
                 textViewNamaU.setText(NAMA_U);
                 textViewNIMU.setText(NIM_U);
                 textViewTelpU.setText(TELP_U);
+                textViewJurusanU.setText(JURUSAN_U);
             }
 
             @Override
@@ -94,7 +97,7 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
         btnHapusU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteUser(TELP_U);
+                deleteUser(ID_U);
             }
         });
         btnEditU.setOnClickListener(this);

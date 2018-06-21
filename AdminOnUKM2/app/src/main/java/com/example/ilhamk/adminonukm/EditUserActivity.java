@@ -1,5 +1,6 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
     private Spinner spinnerRoleUser;
 
     private DatabaseReference databaseReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,8 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
 
         btnSave.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
+
+        progressDialog = new ProgressDialog(this);
     }
 
     private void saveUser(){
@@ -81,6 +85,8 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
         Integer angkatan = Integer.parseInt(editTextAngkatan.getText().toString().trim());
         String role = spinnerRoleUser.getSelectedItem().toString().trim();
 
+        progressDialog.setMessage("Mengubah data pengguna...");
+        progressDialog.show();
 
         UserInformation userInformation = new UserInformation(ID_U, nama, nim, jurusan, telp, angkatan,
                role, EMAIL_U);
@@ -90,6 +96,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            finish();
                             startActivity(new Intent(getApplicationContext(), LihatUserActivity.class));
                             Toast.makeText(getApplicationContext(), "Mengubah data user berhasil", Toast.LENGTH_SHORT).show();
                         }

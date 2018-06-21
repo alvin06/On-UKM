@@ -41,10 +41,6 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
     private EditText editTextEmail;
     private EditText editTextPass;
 
-//    private EditText editTextNamaUser;
-//    private EditText editTextNIM;
-//    private EditText editTextJurusan;
-
     private Spinner spinnerRole;
     private Spinner spinnerUKM;
 
@@ -66,10 +62,6 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmailP);
         editTextPass = (EditText) findViewById(R.id.editTextPassP);
-
-//        editTextNamaUser = (EditText) findViewById(R.id.editTextNamaUser);
-//        editTextNIM = (EditText) findViewById(R.id.editTextNIM);
-//        editTextJurusan = (EditText) findViewById(R.id.editTextJurusan);
 
         spinnerRole = (Spinner) findViewById(R.id.spinnerRole);
         spinnerUKM = (Spinner) findViewById(R.id.spinnerUKM);
@@ -184,6 +176,9 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
     protected void onStart() {
         super.onStart();
 
+        progressDialog.setMessage("Mendapatkan list UKM....");
+        progressDialog.show();
+
         //mengisi data spinner dari firebase
         Query ukmQuery =  databaseReference.child("ukm").orderByChild("namaUKM");
 
@@ -199,6 +194,7 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                 }
                 UKMList adapter = new UKMList(TambahUserActivity.this, ukmInformationList);
                 spinnerUKM.setAdapter(adapter);
+                progressDialog.dismiss();
             }
 
             @Override

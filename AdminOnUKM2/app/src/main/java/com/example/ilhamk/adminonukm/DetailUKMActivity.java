@@ -1,11 +1,13 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,9 +37,9 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
 
     private Button btnEditUKM;
     private Button btnLihatAnggota;
+    private Button btnHapusUKM;
 
-    private String idUKM, namaUKM, jadwalLatihan, kategori, pembina, totalAnggota;
-
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +63,35 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
 
         btnEditUKM = (Button) findViewById(R.id.btnEditUKM);
         btnLihatAnggota = (Button) findViewById(R.id.btnLihatAnggota);
+        btnHapusUKM = findViewById(R.id.btnHapusUKM);
 
         btnEditUKM.setOnClickListener(this);
         btnLihatAnggota.setOnClickListener(this);
+        btnHapusUKM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteUKM(ID_UKM);
+            }
+        });
+
+        progressDialog = new ProgressDialog(this);
 
         textViewUKMname.setText(NAMA_UKM);
         textViewJadwalLatihan.setText(JADWAL_UKM);
         textViewKategori.setText(KATEGORI_UKM);
         textViewPembina.setText(PEMBINA_UKM);
         textViewTotAnggota.setText(TOTANGGOTA_UKM);
+    }
+
+    private void deleteUKM(String idUKM){
+        progressDialog.setMessage("Menghapus UKM....");
+        progressDialog.show();
+
+        DatabaseReference dbUKM = FirebaseDatabase.getInstance().getReference("ukm").child(idUKM);
+        dbUKM.removeValue();
+
+        startActivity(new Intent(getApplicationContext(), LihatUKMActivity.class));
+        Toast.makeText(getApplicationContext(), "Berhasil menghapus UKM", Toast.LENGTH_SHORT).show();
     }
 
     @Override

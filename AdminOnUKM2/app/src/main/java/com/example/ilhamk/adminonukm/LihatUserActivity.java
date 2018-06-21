@@ -1,5 +1,6 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,9 +27,8 @@ public class LihatUserActivity extends AppCompatActivity{
     private ListView listViewUser;
     private List<UserInformation> userList;
 
-//    private Button btnHome;
-
     private DatabaseReference databaseReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,10 @@ public class LihatUserActivity extends AppCompatActivity{
         databaseReference = FirebaseDatabase.getInstance().getReference("user");
 
         listViewUser = (ListView) findViewById(R.id.listViewUser);
-//        btnHome = findViewById(R.id.btnHomee);
 
         userList = new ArrayList<>();
+
+        progressDialog = new ProgressDialog(this);
 
         listViewUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,18 +55,14 @@ public class LihatUserActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
-//        btnHome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//            }
-//        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        progressDialog.setMessage("Mendapatkan list pengguna....");
+        progressDialog.show();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,6 +77,8 @@ public class LihatUserActivity extends AppCompatActivity{
 
                 UserList adapter = new UserList(LihatUserActivity.this, userList);
                 listViewUser.setAdapter(adapter);
+
+                progressDialog.dismiss();
             }
 
             @Override

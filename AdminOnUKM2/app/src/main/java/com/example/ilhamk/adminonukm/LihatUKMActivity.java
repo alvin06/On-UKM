@@ -1,5 +1,6 @@
 package com.example.ilhamk.adminonukm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,12 +29,11 @@ public class LihatUKMActivity extends AppCompatActivity{
     public static final String UKM_Pembina = "pembinaUKM";
     public static final String UKM_totAnggota = "totAnggotaUKM";
 
-//    private Button btnHome;
-
     private ListView listViewUKM;
     private List<UKMInformation> ukmList;
 
     private DatabaseReference databaseReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +43,10 @@ public class LihatUKMActivity extends AppCompatActivity{
         databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
 
         listViewUKM = (ListView) findViewById(R.id.listViewUKM);
-//        btnHome = findViewById(R.id.btnHome);
 
         ukmList = new ArrayList<>();
+
+        progressDialog = new ProgressDialog(this);
 
         listViewUKM.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,18 +65,14 @@ public class LihatUKMActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
-//        btnHome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//            }
-//        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        progressDialog.setMessage("Mendapatkan list UKM....");
+        progressDialog.show();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,6 +87,7 @@ public class LihatUKMActivity extends AppCompatActivity{
 
                 UKMList adapter = new UKMList(LihatUKMActivity.this, ukmList);
                 listViewUKM.setAdapter(adapter);
+                progressDialog.dismiss();
             }
 
             @Override

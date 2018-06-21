@@ -139,7 +139,7 @@
                 tools:ignore="NotSibling" />
 
             <TextView
-                android:id="@+id/titik2"
+                android:id="@+id/titik5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -156,7 +156,7 @@
                 android:id="@+id/textViewDepartemen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titik2"
+                android:layout_toRightOf="@+id/titik5"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
