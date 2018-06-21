@@ -69,7 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="100"
+                    android:text=""
+                    android:id="@+id/anggota"
                     android:textColor="@color/colorPinkDark"
                     android:textSize="14sp" />
             </LinearLayout>
