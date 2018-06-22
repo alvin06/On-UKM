@@ -33,7 +33,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="11dp"
                 android:layout_marginStart="11dp"
-                android:src="@drawable/icon" />
+                android:src="@drawable/icon"
+                android:id="@+id/logoUkm"/>
 
             <TextView
                 android:id="@+id/textViewUkm"
