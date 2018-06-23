@@ -1,61 +1,85 @@
 package com.example.alvinafandi.on_ukm;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.example.alvinafandi.on_ukm.classes.Ukm;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Ukm ukm1 = new Ukm("test1", "testUkm1", 0, "testKetua1", "besok pendaftaran");
-    private Ukm ukm2 = new Ukm("test2", "testUkm2", 0, "testKetua2", "besok pendaftaran");
-    private Ukm ukm3 = new Ukm("test3", "testUkm3", 0, "testKetua3", "besok pendaftaran");
-    private Ukm ukm4 = new Ukm("test4", "testUkm4", 0, "testKetua4", "besok pendaftaran");
+    //private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    //private DatabaseReference databaseReference;
+    //private ValueEventListener mPostListener;
 
-    private Button btnUkm1;
-    private Button btnUkm2;
-    private Button btnUkm3;
-    private Button btnUkm4;
+    //private Button btnUkm1;
+    private CardView ukm1;
+    final List<Ukm> ukms = new ArrayList<Ukm>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        btnUkm1 = findViewById(R.id.btnUkm1);
-        btnUkm2 = findViewById(R.id.btnUkm2);
-        btnUkm3 = findViewById(R.id.btnUkm3);
-        btnUkm4 = findViewById(R.id.btnUkm4);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference();
+        databaseReference.child("ukm").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
 
-        btnUkm1.setOnClickListener(this);
-        btnUkm2.setOnClickListener(this);
-        btnUkm3.setOnClickListener(this);
-        btnUkm4.setOnClickListener(this);
+                for (DataSnapshot child: children) {
+                    Ukm ukm = child.getValue(Ukm.class);
+                    ukms.add(ukm);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        ukm1 = findViewById(R.id.ukm1);
+
+        ukm1.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ValueEventListener ukmListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Ukm ukm = dataSnapshot.getValue(Ukm.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
     }
 
     public void onClick(View view) {
-        if (view == btnUkm1) {
+        if (view == ukm1) {
             Intent intent = new Intent(this, UKMActivity.class); //buat intent dari sini ke activity lain
-            intent.putExtra("ukmTag", ukm1); //masukin objek ke intent
-            startActivity(intent);
-        }
-        else if (view == btnUkm2) {
-            Intent intent = new Intent(this, UKMActivity.class);
-            intent.putExtra("ukmTag", ukm2);
-            startActivity(intent);
-        }
-        else if (view == btnUkm3) {
-            Intent intent = new Intent(this, UKMActivity.class);
-            intent.putExtra("ukmTag", ukm3);
-            startActivity(intent);
-        }
-        else if (view == btnUkm4){
-            Intent intent = new Intent(this, UKMActivity.class);
-            intent.putExtra("ukmTag", ukm4);
+            intent.putExtra("ukmTag", ukms.get(0)); //masukin objek ke intent
             startActivity(intent);
         }
     }

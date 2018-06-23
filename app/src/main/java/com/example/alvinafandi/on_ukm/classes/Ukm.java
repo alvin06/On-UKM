@@ -10,37 +10,63 @@ import java.util.Date;
  */
 
 public class Ukm implements Parcelable{
-    private String idUkm;
-    private String namaUkm;
-    private int totalAnggota;
-    private String idKetua;
-    private String jadwalKegiatan;
+    String idUKM;
+    String jadwalLatihan;
+    String kategori;
+    String namaUKM;
+    String pembina;
+    int totalAnggota;
 
     public Ukm() {
     }
 
-    public Ukm(String idUkm, String namaUkm, int totalAnggota, String idKetua, String jadwalKegiatan) {
-        this.idUkm = idUkm;
-        this.namaUkm = namaUkm;
+    public Ukm(String idUKM, String jadwalLatihan, String kategori, String namaUKM, String pembina, int totalAnggota) {
+        this.idUKM = idUKM;
+        this.jadwalLatihan = jadwalLatihan;
+        this.kategori = kategori;
+        this.namaUKM = namaUKM;
+        this.pembina = pembina;
         this.totalAnggota = totalAnggota;
-        this.idKetua = idKetua;
-        this.jadwalKegiatan = jadwalKegiatan;
     }
 
-    public String getIdUkm() {
-        return idUkm;
+    public String getIdUKM() {
+        return idUKM;
     }
 
-    public void setIdUkm(String idUkm) {
-        this.idUkm = idUkm;
+    public void setIdUKM(String idUKM) {
+        this.idUKM = idUKM;
     }
 
-    public String getNamaUkm() {
-        return namaUkm;
+    public String getJadwalLatihan() {
+        return jadwalLatihan;
     }
 
-    public void setNamaUkm(String namaUkm) {
-        this.namaUkm = namaUkm;
+    public void setJadwalLatihan(String jadwalLatihan) {
+        this.jadwalLatihan = jadwalLatihan;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
+
+    public String getNamaUKM() {
+        return namaUKM;
+    }
+
+    public void setNamaUKM(String namaUKM) {
+        this.namaUKM = namaUKM;
+    }
+
+    public String getPembina() {
+        return pembina;
+    }
+
+    public void setPembina(String pembina) {
+        this.pembina = pembina;
     }
 
     public int getTotalAnggota() {
@@ -51,33 +77,21 @@ public class Ukm implements Parcelable{
         this.totalAnggota = totalAnggota;
     }
 
-    public String getIdKetua() {
-        return idKetua;
+    public static Creator<Ukm> getCREATOR() {
+        return CREATOR;
     }
-
-    public void setIdKetua(String idKetua) {
-        this.idKetua = idKetua;
-    }
-
-    public String getJadwalKegiatan() {
-        return jadwalKegiatan;
-    }
-
-    public void setJadwalKegiatan(String jadwalKegiatan) {
-        this.jadwalKegiatan = jadwalKegiatan;
-    }
-
 
     //ngebuat parcel
     public Ukm(Parcel in) {
-        String[] data = new String[5]; //bikin array string sebanyak atributnya
+        String[] data = new String[6]; //bikin array string sebanyak atributnya
 
         in.readStringArray(data);
-        this.idUkm = data[0]; //masukin tiap atribut ke array
-        this.namaUkm = data[1];
-        this.totalAnggota = Integer.parseInt(data[2]);
-        this.idKetua = data[3];
-        this.jadwalKegiatan = data[4];
+        this.idUKM = data[0]; //masukin tiap atribut ke array
+        this.jadwalLatihan = data[1];
+        this.kategori = data[2];
+        this.namaUKM = data[3];
+        this.pembina = data[4];
+        this.totalAnggota = Integer.parseInt(data[5]);
     }
 
     @Override
@@ -87,8 +101,8 @@ public class Ukm implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[]{this.idUkm, this.namaUkm, String.valueOf(this.totalAnggota),
-                this.idKetua, this.jadwalKegiatan});
+        dest.writeStringArray(new String[]{this.idUKM, this.jadwalLatihan, this.kategori,
+                this.namaUKM, this.pembina, String.valueOf(this.totalAnggota)});
     }
 
     public static final Parcelable.Creator<Ukm> CREATOR = new Parcelable.Creator<Ukm>() {
