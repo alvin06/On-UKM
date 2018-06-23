@@ -90,6 +90,26 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
         DatabaseReference dbUKM = FirebaseDatabase.getInstance().getReference("ukm").child(idUKM);
         dbUKM.removeValue();
 
+        //update role pengurus jadi biasa
+        DatabaseReference dbPengurus = FirebaseDatabase.getInstance().getReference("pengurus").child(idUKM);
+        final DatabaseReference dbuser = FirebaseDatabase.getInstance().getReference("user");
+        dbPengurus.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot pengurusSnapshot : dataSnapshot.getChildren()){
+                    String idPengurus = pengurusSnapshot.child("id_user").getValue(String.class);
+                    dbuser.child(idPengurus+"/role").setValue("Biasa");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        dbPengurus.removeValue();
+
         startActivity(new Intent(getApplicationContext(), LihatUKMActivity.class));
         Toast.makeText(getApplicationContext(), "Berhasil menghapus UKM", Toast.LENGTH_SHORT).show();
     }
