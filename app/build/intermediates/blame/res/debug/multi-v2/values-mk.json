@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\rizky\\AndroidStudioProjects\\hehe\\On-UKM\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
+            "outputFile": "C:\\Users\\Alvin Afandi\\AndroidStudioProjects\\On-UKM\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rizky\\.gradle\\wrapper\\dists\\gradle-4.2\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\49b7b5c74e72360346078b331d2ef1f0\\res\\values-mk\\values-mk.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,213,317,425,511,616,735,818,900,987,1093,1200,1301,1408,1519,1623,1779,1877",
-                        "endColumns": "107,103,107,85,104,118,82,81,86,105,106,100,106,110,103,155,97,83",
-                        "endOffsets": "208,312,420,506,611,730,813,895,982,1088,1195,1296,1403,1514,1618,1774,1872,1956"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,37",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,213,317,425,511,616,735,818,900,987,1093,1200,1301,1408,1519,1623,1779,4609",
-                        "endColumns": "107,103,107,85,104,118,82,81,86,105,106,100,106,110,103,155,97,83",
-                        "endOffsets": "208,312,420,506,611,730,813,895,982,1088,1195,1296,1403,1514,1618,1774,1872,4688"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\rizky\\.gradle\\wrapper\\dists\\gradle-4.2\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\e6ba6161a67b16ce3a4d48dc5f0659d3\\res\\values-mk\\values-mk.xml",
+                    "source": "C:\\Users\\Alvin Afandi\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\528d27ca64176b6492eeea1c679208e8\\res\\values-mk\\values-mk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rizky\\.gradle\\wrapper\\dists\\gradle-4.2\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\305d4e828ca59aca32588f1d5f7953aa\\res\\values-mk\\values.xml",
+                    "source": "C:\\Users\\Alvin Afandi\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\fdbf5acb3ee8c441a10041bcd62a4d98\\res\\values-mk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "283",
+                        "endColumns": "195",
+                        "endOffsets": "478"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3054",
+                        "endColumns": "195",
+                        "endOffsets": "3245"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Alvin Afandi\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\dda14d893379d7b752e4a679b5c157d7\\res\\values-mk\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rizky\\.gradle\\wrapper\\dists\\gradle-4.2\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\7f4ec161dbec3ecfdf5f194f3d1ea95a\\res\\values-mk\\values.xml",
+                    "source": "C:\\Users\\Alvin Afandi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\321ed298d6470c6c970cb36f9858f44c\\res\\values-mk\\values-mk.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "283",
-                        "endColumns": "195",
-                        "endOffsets": "478"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,317,425,511,616,735,818,900,987,1093,1200,1301,1408,1519,1623,1779,1877",
+                        "endColumns": "107,103,107,85,104,118,82,81,86,105,106,100,106,110,103,155,97,83",
+                        "endOffsets": "208,312,420,506,611,730,813,895,982,1088,1195,1296,1403,1514,1618,1774,1872,1956"
                     },
                     "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3054",
-                        "endColumns": "195",
-                        "endOffsets": "3245"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,37",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,317,425,511,616,735,818,900,987,1093,1200,1301,1408,1519,1623,1779,4609",
+                        "endColumns": "107,103,107,85,104,118,82,81,86,105,106,100,106,110,103,155,97,83",
+                        "endOffsets": "208,312,420,506,611,730,813,895,982,1088,1195,1296,1403,1514,1618,1774,1872,4688"
                     }
                 }
             ]

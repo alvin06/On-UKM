@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Email Mahasiswa"
+            android:hint="Email"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
             android:inputType="textEmailAddress" />
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Password"
+            android:hint="Kata Sandi"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
             android:inputType="textPassword" />

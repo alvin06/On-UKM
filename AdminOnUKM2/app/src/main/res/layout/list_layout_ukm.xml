@@ -19,6 +19,7 @@
             android:layout_margin="8dp"
             android:text="nama ukm"
             android:fontFamily="@font/roboto_regular"
+            android:textSize="14sp"
             android:textColor="@color/colorPinkOn"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
     </LinearLayout>

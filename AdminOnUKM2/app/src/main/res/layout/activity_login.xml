@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="LOGIN"
+            android:text="Masuk Admin"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPinkOn"
             android:id="@+id/signInTitle"
@@ -31,7 +31,7 @@
         <EditText
             android:layout_margin="15dp"
             android:inputType="textEmailAddress"
-            android:hint="Enter your email"
+            android:hint="Masukkan Email"
             android:fontFamily="@font/roboto_regular"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         <EditText
             android:layout_margin="15dp"
             android:inputType="textPassword"
-            android:hint="Enter your password"
+            android:hint="Masukkan Kata Sandi"
             android:fontFamily="@font/roboto_regular"
             android:id="@+id/editTextPass"
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:height="40dp"
             android:background="@drawable/roundedbuttonlogin"
             android:gravity="center"
-            android:text="Login"
+            android:text="Masuk"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

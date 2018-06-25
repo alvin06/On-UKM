@@ -22,11 +22,10 @@
     <application
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.alvinafandi.on_ukm.LoginActivity" >
             <intent-filter>
@@ -43,6 +42,9 @@
             android:label="@string/title_activity_profile" />
         <activity android:name="com.example.alvinafandi.on_ukm.UKMActivity" />
         <activity android:name="com.example.alvinafandi.on_ukm.UkmHomeActivity" />
+        <activity android:name="com.example.alvinafandi.on_ukm.Oprec" />
+        <activity android:name="com.example.alvinafandi.on_ukm.EditProfile" />
+        <activity android:name="com.example.alvinafandi.on_ukm.LihatPendaftar" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

@@ -16,16 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Pengguna ON-UKM"
+        android:text="Pengguna On - UKM"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/colorPinkOn"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_margin="8dp"/>
 
     <ListView
         android:id="@+id/listViewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listUserTitle" />
+        android:layout_below="@+id/listUserTitle"/>
 
 </RelativeLayout>
