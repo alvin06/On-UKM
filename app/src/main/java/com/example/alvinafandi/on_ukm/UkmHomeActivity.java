@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -32,7 +33,7 @@ public class UkmHomeActivity extends AppCompatActivity {
         databaseReference.keepSynced(true);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
     @Override
@@ -45,6 +46,7 @@ public class UkmHomeActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(final ukmTestViewHolder viewHolder, final ukmTest model, final int position) {
                 viewHolder.setNamaUkm(model.getNamaUkm());
+                viewHolder.setLogo(getApplicationContext(), model.getLogoUkm());
 
                 viewHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -72,11 +74,11 @@ public class UkmHomeActivity extends AppCompatActivity {
             TextView namaUkm = (TextView)view.findViewById(R.id.namaUkm);
             namaUkm.setText(nama);
         }
-//
-//        public void setLogo(Context context, String image) {
-//            ImageView logoUkm = (ImageView)view.findViewById(R.id.logoUkm);
-//            Picasso.with(context).load(image).into(logoUkm);
-//        }
+
+        public void setLogo(Context context, String image) {
+            ImageView logoUkm = (ImageView)view.findViewById(R.id.logoUkm);
+            Picasso.with(context).load(image).into(logoUkm);
+        }
 
     }
 }

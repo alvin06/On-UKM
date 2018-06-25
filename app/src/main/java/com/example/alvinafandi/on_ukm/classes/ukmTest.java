@@ -11,11 +11,11 @@ public class ukmTest implements Parcelable{
     private String idUKM;
     private String jadwalLatihan;
     private String kategori;
-    private String logoUKM = "blmada";
+    private String logoUKM;
     private String namaUKM;
     private String pembina;
     private int totalAnggota;
-
+//hqbxlcqebuye
     public ukmTest() {
     }
 

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 #Mon Jun 25 20:23:13 ICT 2018
 path.3=classes.dex
 path.2=classes.dex
 path.1=classes.dex
+=======
+#Fri Jun 22 18:22:10 ICT 2018
+base.0=C\:\\Users\\rizky\\AndroidStudioProjects\\hehe\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+>>>>>>> 88de957e0108d9d11f0ce8ef1ff3b2c54fd19309
 path.0=classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex

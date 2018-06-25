@@ -74,7 +74,7 @@ public class LihatUKMActivity extends AppCompatActivity{
         progressDialog.setMessage("Mendapatkan list UKM....");
         progressDialog.show();
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("namaUKM").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
