@@ -29,7 +29,8 @@
         <activity android:name=".Oprec" />
         <activity android:name=".EditProfile" />
         <activity android:name=".LihatPendaftar" />
-        <activity android:name=".LihatPengurus"></activity>
+        <activity android:name=".LihatPengurus" />
+        <activity android:name=".OpenRecruitmentActivity"></activity>
     </application>
 
 </manifest>

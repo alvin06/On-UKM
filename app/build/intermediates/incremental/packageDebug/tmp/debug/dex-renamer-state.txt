@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-#Mon Jun 25 20:23:13 ICT 2018
-path.3=classes.dex
-path.2=classes.dex
-path.1=classes.dex
-=======
-#Fri Jun 22 18:22:10 ICT 2018
-base.0=C\:\\Users\\rizky\\AndroidStudioProjects\\hehe\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
->>>>>>> 88de957e0108d9d11f0ce8ef1ff3b2c54fd19309
+#Wed Jun 27 00:41:57 ICT 2018
+base.0=C\:\\Users\\rizky\\AndroidStudioProjects\\Ketololan\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
-renamed.1=classes2.dex
 renamed.0=classes.dex
-base.3=C\:\\Users\\Alvin Afandi\\AndroidStudioProjects\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
-base.2=C\:\\Users\\Alvin Afandi\\AndroidStudioProjects\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
-base.1=C\:\\Users\\Alvin Afandi\\AndroidStudioProjects\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-base.0=C\:\\Users\\Alvin Afandi\\AndroidStudioProjects\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13

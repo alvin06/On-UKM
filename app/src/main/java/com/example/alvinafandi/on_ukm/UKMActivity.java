@@ -1,9 +1,12 @@
 package com.example.alvinafandi.on_ukm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.alvinafandi.on_ukm.classes.Pendaftaran;
 import com.example.alvinafandi.on_ukm.classes.Ukm;
+import com.example.alvinafandi.on_ukm.classes.User;
 import com.example.alvinafandi.on_ukm.classes.ukmTest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -24,12 +28,21 @@ import com.squareup.picasso.Picasso;
 public class UKMActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ukmTest ukm;
+    private User user;
     private TextView namaTextView, anggotaTextView;
     private ImageView logoImageView;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private Pendaftaran pendaftaran;
     private Button buttonDaftar;
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        BottomNavigationView mNavigationView = findViewById(R.id.tab_homeOn);
+        mNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mNavigationView.getMenu().findItem(R.id.tab_home).setChecked(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +64,32 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         namaTextView.setText(ukm.getNamaUkm());
         anggotaTextView.setText(Integer.toString(ukm.getTotalAnggota()));
 
+        //jika user role ==  pengurus && user ukm == id ukm
+        if(true) {
+
+            //jika pendaftaran belom dibuka
+            if(true) {
+
+                // buka pendaftaran
+                buttonDaftar.setText("Buka Pendaftaran");
+            }
+            else {
+
+                //tutup pendaftaran
+                buttonDaftar.setText("Tutup Pendaftaran");
+            }
+        }
+        else{
+
+            //daftar
+            buttonDaftar.setText("Daftar");
+        }
 
         buttonDaftar.setOnClickListener(this);
+
+        BottomNavigationView mNavigationView = findViewById(R.id.tab_homeOn);
+        mNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mNavigationView.getMenu().findItem(R.id.tab_home).setChecked(true);
     }
 
     public void daftar() {
@@ -69,10 +106,43 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         });
     }
 
+    public  void bukaPendaftaran() {
+
+
+    }
+
+    public void tutupPendaftaran() {
+        //update poster coming soon
+        //update caption coming soon
+        //update status pendaftaran
+    }
+
     @Override
     public void onClick(View v) {
         if (v == buttonDaftar) {
-            daftar();
+            //jika user role ==  pengurus && user ukm == id ukm
+            if(true) {
+
+                //jika pendaftaran belom dibuka
+                if(true) {
+
+                    // buka pendaftaran
+                    //bukaPendaftaran(); atau buka activity Open Rec
+                    Intent intent = new Intent(this, OpenRecruitmentActivity.class); //buat intent dari sini ke activity lain
+                    intent.putExtra("ukmTag", ukm); //masukin objek ke intent
+                    startActivity(intent);
+                }
+                else {
+
+                    //tutup pendaftaran
+                    tutupPendaftaran();
+                }
+            }
+            else{
+
+                //daftar
+                daftar();
+            }
         }
     }
 
@@ -80,4 +150,29 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         ImageView logoUkm = (ImageView)findViewById(R.id.logoUkm);
         Picasso.with(context).load(image).into(logoUkm);
     }
+
+    public void setPoster() {
+
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.tab_profileOff:
+                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.tab_home:
+                    intent = new Intent(getApplicationContext(), UkmHomeActivity.class);
+                    startActivity(intent);
+                    return true;
+            }
+            return false;
+        }
+    };
+
 }

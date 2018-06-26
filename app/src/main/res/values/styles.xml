@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPinkOn</item>
         <item name="colorPrimaryDark">@color/colorPinkDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@null</item>
     </style>
 
 </resources>

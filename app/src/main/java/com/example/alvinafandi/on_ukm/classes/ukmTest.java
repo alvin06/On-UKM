@@ -15,7 +15,7 @@ public class ukmTest implements Parcelable{
     private String namaUKM;
     private String pembina;
     private int totalAnggota;
-//hqbxlcqebuye
+
     public ukmTest() {
     }
 
