@@ -14,21 +14,19 @@ public class User implements Parcelable {
     private String nomorHp;
     private String role;
     private int angkatan;
+    private String idUKM;
 
     public User() {
     }
 
-    public User(String idUser, String nama, String nim, String nomorHp, String role, int angkatan) {
+    public User(String idUser, String nama, String nim, String nomorHp, String role, int angkatan, String idUKM) {
         this.idUser = idUser;
         this.nama = nama;
         this.nim = nim;
         this.nomorHp = nomorHp;
         this.role = role;
         this.angkatan = angkatan;
-    }
-
-    public static Creator<User> getCREATOR() {
-        return CREATOR;
+        this.idUKM = idUKM;
     }
 
     public String getIdUser() {
@@ -79,8 +77,20 @@ public class User implements Parcelable {
         this.angkatan = angkatan;
     }
 
+    public String getIdUKM() {
+        return idUKM;
+    }
+
+    public void setIdUKM(String idUKM) {
+        this.idUKM = idUKM;
+    }
+
+    public static Creator<User> getCREATOR() {
+        return CREATOR;
+    }
+
     public User(Parcel in) {
-        String[] data = new String[6]; //bikin array string sebanyak atributnya
+        String[] data = new String[7]; //bikin array string sebanyak atributnya
 
         in.readStringArray(data);
         this.idUser = data[0];
@@ -89,6 +99,7 @@ public class User implements Parcelable {
         this.nomorHp = data[3];
         this.role = data[4];
         this.angkatan = Integer.parseInt(data[5]);
+        this.idUKM = data[6];
     }
 
     @Override
@@ -99,7 +110,7 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[]{this.idUser, this.nama, this.nim, this.nomorHp,
-                this.role, String.valueOf(this.angkatan)});
+                this.role, String.valueOf(this.angkatan), this.idUKM});
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

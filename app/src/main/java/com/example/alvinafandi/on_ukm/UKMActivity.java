@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         posterImageView = findViewById(R.id.poster);
 
         ukm = getIntent().getParcelableExtra("ukmTag"); //nerima parcel yg namanya "ukmTag"
+        user = getIntent().getParcelableExtra("userTag");
         databaseReference = FirebaseDatabase.getInstance().getReference("Pendaftaran_Test");
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
@@ -69,7 +71,7 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         anggotaTextView.setText(Integer.toString(ukm.getTotalAnggota()));
 
         //jika user role ==  pengurus && user ukm == id ukm
-        if(true) {
+        if(TextUtils.equals(user.getRole(), "Pengurus") && TextUtils.equals(user.getIdUKM(), ukm.getIdUKM())) {
 
             //jika pendaftaran belom dibuka
             if(true) {
