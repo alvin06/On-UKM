@@ -31,7 +31,7 @@
         android:orientation="vertical"
         android:paddingEnd="14dp"
         android:paddingStart="14dp"
-        android:weightSum="4"
+        android:weightSum="5"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="40dp"
         tools:layout_editor_absoluteY="143dp">

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,9 +40,9 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
 
-    private ImageView posterView;
+    private ImageButton selectPosterButton;
     private EditText caption;
-    private Button selectPosterButton, postRecruitmentButton;
+    private Button postRecruitmentButton;
 
     private Uri imageUri;
 
@@ -65,7 +66,6 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
 
-        posterView = findViewById(R.id.imageViewPoster);
         caption = findViewById(R.id.caption);
         selectPosterButton = findViewById(R.id.selectPosterButton);
         postRecruitmentButton = findViewById(R.id.postButton);
@@ -147,7 +147,7 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
             imageUri = data.getData();
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
-                posterView.setImageBitmap(bitmap);
+                selectPosterButton.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

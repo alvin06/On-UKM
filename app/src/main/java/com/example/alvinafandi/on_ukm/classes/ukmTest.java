@@ -16,14 +16,13 @@ public class ukmTest implements Parcelable{
     private String pembina;
     private String caption;
     private String posterUKM;
+    private Boolean oprec;
     private int totalAnggota;
 
     public ukmTest() {
-
     }
 
-    public ukmTest(String idUKM, String jadwalLatihan, String kategori, String logoUKM,
-                   String namaUKM, String pembina, String caption, String posterUKM, int totalAnggota) {
+    public ukmTest(String idUKM, String jadwalLatihan, String kategori, String logoUKM, String namaUKM, String pembina, String caption, String posterUKM, Boolean oprec, int totalAnggota) {
         this.idUKM = idUKM;
         this.jadwalLatihan = jadwalLatihan;
         this.kategori = kategori;
@@ -32,6 +31,7 @@ public class ukmTest implements Parcelable{
         this.pembina = pembina;
         this.caption = caption;
         this.posterUKM = posterUKM;
+        this.oprec = oprec;
         this.totalAnggota = totalAnggota;
     }
 
@@ -99,6 +99,14 @@ public class ukmTest implements Parcelable{
         this.posterUKM = posterUKM;
     }
 
+    public Boolean getOprec() {
+        return oprec;
+    }
+
+    public void setOprec(Boolean oprec) {
+        this.oprec = oprec;
+    }
+
     public int getTotalAnggota() {
         return totalAnggota;
     }
@@ -113,7 +121,7 @@ public class ukmTest implements Parcelable{
 
     //ngebuat parcel
     public ukmTest(Parcel in) {
-        String[] data = new String[9]; //bikin array string sebanyak atributnya
+        String[] data = new String[10]; //bikin array string sebanyak atributnya
 
         in.readStringArray(data);
         this.idUKM = data[0]; //masukin tiap atribut ke array
@@ -124,7 +132,8 @@ public class ukmTest implements Parcelable{
         this.pembina = data[5];
         this.caption = data[6];
         this.posterUKM = data[7];
-        this.totalAnggota = Integer.parseInt(data[8]);
+        this.oprec = Boolean.parseBoolean(data[8]);
+        this.totalAnggota = Integer.parseInt(data[9]);
     }
 
     @Override
@@ -135,7 +144,7 @@ public class ukmTest implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[]{this.idUKM, this.jadwalLatihan, this.kategori, this.logoUKM,
-                this.namaUKM, this.pembina, this.caption, this.posterUKM, String.valueOf(this.totalAnggota)});
+                this.namaUKM, this.pembina, this.caption, this.posterUKM, String.valueOf(this.oprec),String.valueOf(this.totalAnggota)});
     }
 
     public static final Parcelable.Creator<ukmTest> CREATOR = new Parcelable.Creator<ukmTest>() {
