@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class EditUKMActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static String idUKM, namaUKM, pembina, totAnggota, jadwal;
+    private static String idUKM, namaUKM, pembina, totAnggota, jadwal, imURL, imPoster, Caption, Oprec;
 
     private EditText editTextNamaUKM;
     private EditText editTextJadwalUKM;
@@ -44,6 +45,11 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
         pembina = intent.getStringExtra(DetailUKMActivity.PEMBINA_UKM);
         totAnggota = intent.getStringExtra(DetailUKMActivity.TOTANGGOTA_UKM);
         jadwal = intent.getStringExtra(DetailUKMActivity.JADWAL_UKM);
+        imURL = intent.getStringExtra(DetailUKMActivity.IMURL_UKM);
+        imPoster = intent.getStringExtra(DetailUKMActivity.IMPoster_UKM);
+        Caption = intent.getStringExtra(DetailUKMActivity.Caption_UKM);
+        Oprec = intent.getStringExtra(DetailUKMActivity.Oprec_UKM);
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
 
@@ -71,13 +77,19 @@ public class EditUKMActivity extends AppCompatActivity implements View.OnClickLi
         String jadwalLatihan = editTextJadwalUKM.getText().toString().trim();
         String pembina = editTextPembinaUKM.getText().toString().trim();
         String kategori = spinnerEditKategori.getSelectedItem().toString();
+
         Integer totalAnggota = Integer.parseInt(totAnggota);
+        Boolean oprec = true;
+
+        if(TextUtils.equals(Oprec, "false")){
+            oprec = false;
+        }
 
         progressDialog.setMessage("Mengubah data UKM...");
         progressDialog.show();
 
         UKMInformation ukmInformation = new UKMInformation(idUKM, jadwalLatihan, namaUKM, totalAnggota,
-                pembina, kategori);
+                pembina, kategori, imURL, imPoster, Caption, oprec);
         databaseReference.child(idUKM).setValue(ukmInformation)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
