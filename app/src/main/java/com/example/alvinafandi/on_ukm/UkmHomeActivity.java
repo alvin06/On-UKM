@@ -109,7 +109,7 @@ public class UkmHomeActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.tab_profileOff:
-                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    Intent intent = new Intent(UkmHomeActivity.this, ProfileActivity.class);
                     intent.putExtra("userTag", user);
                     startActivity(intent);
                     return true;

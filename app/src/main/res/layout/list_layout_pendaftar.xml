@@ -3,20 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="191dp"
-        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/textViewPendaftar"
-            android:layout_width="169dp"
+            android:layout_width="189dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="nama user"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
+            android:text="nama user"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPinkOn"
-            android:textSize="14sp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-    </LinearLayout>
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnTerima"
+            android:layout_toRightOf="@id/textViewPendaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Terima"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnTolak"
+            android:layout_toRightOf="@id/btnTerima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbuttonwarning"
+            android:text="Tolak"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

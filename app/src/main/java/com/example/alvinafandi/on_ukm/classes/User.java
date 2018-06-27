@@ -8,10 +8,12 @@ import android.os.Parcelable;
  */
 
 public class User implements Parcelable {
-    private String idUser;
+    private String id_user;
     private String nama;
     private String nim;
-    private String nomorHp;
+    private String phone;
+    private String email;
+    private String jurusan;
     private String role;
     private int angkatan;
     private String idUKM;
@@ -19,22 +21,24 @@ public class User implements Parcelable {
     public User() {
     }
 
-    public User(String idUser, String nama, String nim, String nomorHp, String role, int angkatan, String idUKM) {
-        this.idUser = idUser;
+    public User(String id_user, String nama, String nim, String phone, String email, String jurusan, String role, int angkatan, String idUKM) {
+        this.id_user = id_user;
         this.nama = nama;
         this.nim = nim;
-        this.nomorHp = nomorHp;
+        this.phone = phone;
+        this.email = email;
+        this.jurusan = jurusan;
         this.role = role;
         this.angkatan = angkatan;
         this.idUKM = idUKM;
     }
 
-    public String getIdUser() {
-        return idUser;
+    public String getid_user() {
+        return id_user;
     }
 
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
+    public void setid_user(String id_user) {
+        this.id_user = id_user;
     }
 
     public String getNama() {
@@ -53,12 +57,28 @@ public class User implements Parcelable {
         this.nim = nim;
     }
 
-    public String getNomorHp() {
-        return nomorHp;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setNomorHp(String nomorHp) {
-        this.nomorHp = nomorHp;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getJurusan() {
+        return jurusan;
+    }
+
+    public void setJurusan(String jurusan) {
+        this.jurusan = jurusan;
     }
 
     public String getRole() {
@@ -85,21 +105,31 @@ public class User implements Parcelable {
         this.idUKM = idUKM;
     }
 
+    public void updateUser(String nama, String nim, String jurusan, String telp, int angkatan){
+        this.nama = nama;
+        this.nim = nim;
+        this.jurusan = jurusan;
+        this.phone = telp;
+        this.angkatan = angkatan;
+    }
+
     public static Creator<User> getCREATOR() {
         return CREATOR;
     }
 
     public User(Parcel in) {
-        String[] data = new String[7]; //bikin array string sebanyak atributnya
+        String[] data = new String[9]; //bikin array string sebanyak atributnya
 
         in.readStringArray(data);
-        this.idUser = data[0];
+        this.id_user = data[0];
         this.nama = data[1];
         this.nim = data[2];
-        this.nomorHp = data[3];
+        this.phone = data[3];
         this.role = data[4];
         this.angkatan = Integer.parseInt(data[5]);
         this.idUKM = data[6];
+        this.jurusan = data[7];
+        this.email = data[8];
     }
 
     @Override
@@ -109,8 +139,8 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[]{this.idUser, this.nama, this.nim, this.nomorHp,
-                this.role, String.valueOf(this.angkatan), this.idUKM});
+        dest.writeStringArray(new String[]{this.id_user, this.nama, this.nim, this.phone,
+                this.role, String.valueOf(this.angkatan), this.idUKM, this.jurusan, this.email});
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

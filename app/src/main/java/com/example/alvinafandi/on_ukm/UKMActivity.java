@@ -170,10 +170,12 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
             switch (item.getItemId()) {
                 case R.id.tab_profileOff:
                     Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent.putExtra("userTag", user);
                     startActivity(intent);
                     return true;
                 case R.id.tab_home:
                     intent = new Intent(getApplicationContext(), UkmHomeActivity.class);
+                    intent.putExtra("userTag", user);
                     startActivity(intent);
                     return true;
             }

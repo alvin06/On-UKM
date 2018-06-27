@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Intent intent = new Intent(getApplicationContext(), UkmHomeActivity.class);
                     intent.putExtra("userTag", user);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), user.getNama(), Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -118,6 +117,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                            }
 
                             user = dataSnapshot.getValue(User.class);
+                            Intent intent = new Intent(getApplicationContext(), UkmHomeActivity.class);
+                            intent.putExtra("userTag", user);
+                            //finish();
+                            startActivity(intent);
                         }
 
                         @Override
@@ -125,10 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         }
                     });
-                    Intent intent = new Intent(getApplicationContext(), UkmHomeActivity.class);
-                    intent.putExtra("userTag", user);
-                    finish();
-                    startActivity(intent);
+
                 } else {
                     Toast.makeText((getApplicationContext()), task.getException().getMessage(),
                             Toast.LENGTH_SHORT).show();

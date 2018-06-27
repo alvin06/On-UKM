@@ -10,14 +10,14 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <ImageButton
+        android:id="@+id/imageBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp"
-        app:srcCompat="@drawable/man"
+        app:srcCompat="@drawable/foto"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="140dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -43,7 +43,6 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/angkatan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
@@ -65,6 +64,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/angkatan"
                 android:layout_width="182dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -82,7 +82,6 @@
             android:layout_marginBottom="6dp">
 
             <TextView
-                android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
@@ -104,6 +103,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/nama"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -121,7 +121,6 @@
             android:layout_marginBottom="6dp">
 
             <TextView
-                android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
@@ -143,6 +142,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/departemen"
                 android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -160,7 +160,6 @@
             android:layout_marginBottom="6dp">
 
             <TextView
-                android:id="@+id/nim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
@@ -182,6 +181,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/nim"
                 android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -200,7 +200,6 @@
             android:layout_marginBottom="6dp">
 
             <TextView
-                android:id="@+id/no_hp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
@@ -222,6 +221,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/no_hp"
                 android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -242,7 +242,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="76dp"
         android:layout_marginEnd="-6dp"
-        android:layout_toStartOf="@+id/imageView3"
+        android:layout_toStartOf="@id/imageBtn"
         android:background="@drawable/roundedbutton"
         android:text="Simpan"
         android:textColor="#ffffff"
@@ -256,9 +256,9 @@
         android:id="@+id/batal"
         android:layout_width="94dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/simpan"
+        android:layout_alignTop="@id/simpan"
         android:layout_marginStart="0dp"
-        android:layout_toEndOf="@+id/imageView3"
+        android:layout_toEndOf="@id/imageBtn"
         android:background="@drawable/roundedbuttonwarning"
         android:text="Batal"
         android:textColor="#ffffff"
@@ -266,7 +266,7 @@
         tools:layout_editor_absoluteX="231dp"
         tools:layout_editor_absoluteY="359dp"
         android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@+id/imageView2" />
+        android:layout_toRightOf="@id/imageBtn" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/tab_homeOn"

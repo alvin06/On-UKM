@@ -26,7 +26,6 @@
             android:label="@string/title_activity_profile" />
         <activity android:name=".UKMActivity" />
         <activity android:name=".UkmHomeActivity" />
-        <activity android:name=".Oprec" />
         <activity android:name=".EditProfile" />
         <activity android:name=".LihatPendaftar" />
         <activity android:name=".LihatPengurus" />

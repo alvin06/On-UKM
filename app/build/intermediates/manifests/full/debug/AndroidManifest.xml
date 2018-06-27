@@ -43,7 +43,6 @@
             android:label="@string/title_activity_profile" />
         <activity android:name="com.example.alvinafandi.on_ukm.UKMActivity" />
         <activity android:name="com.example.alvinafandi.on_ukm.UkmHomeActivity" />
-        <activity android:name="com.example.alvinafandi.on_ukm.Oprec" />
         <activity android:name="com.example.alvinafandi.on_ukm.EditProfile" />
         <activity android:name="com.example.alvinafandi.on_ukm.LihatPendaftar" />
         <activity android:name="com.example.alvinafandi.on_ukm.LihatPengurus" />
