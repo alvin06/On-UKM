@@ -1,4 +1,4 @@
-#Wed Jun 27 00:41:57 ICT 2018
+#Wed Jun 27 12:02:40 ICT 2018
 base.0=C\:\\Users\\rizky\\AndroidStudioProjects\\Ketololan\\On-UKM\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

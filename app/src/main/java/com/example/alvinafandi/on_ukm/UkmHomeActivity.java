@@ -59,8 +59,8 @@ public class UkmHomeActivity extends AppCompatActivity {
 
                     @Override
                     protected void populateViewHolder(final ukmTestViewHolder viewHolder, final ukmTest model, final int position) {
-                        viewHolder.setNamaUkm(model.getNamaUkm());
-                        viewHolder.setLogo(getApplicationContext(), model.getLogoUkm());
+                        viewHolder.setNamaUkm(model.getNamaUKM());
+                        viewHolder.setLogo(getApplicationContext(), model.getLogoUKM());
 
                         viewHolder.view.setOnClickListener(new View.OnClickListener() {
                             @Override
