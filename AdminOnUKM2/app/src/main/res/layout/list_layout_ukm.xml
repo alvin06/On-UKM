@@ -7,21 +7,22 @@
         <!--android:id="@+id/toolbar"-->
         <!--layout="@layout/toolbar"/>-->
 
-    <LinearLayout
-        android:layout_width="191dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar">
+    <ImageView
+        android:id="@+id/imageViewUKM"
+        android:layout_toLeftOf="@+id/textViewNamaUKM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/textViewNamaUKM"
-            android:layout_width="169dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="nama ukm"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="14sp"
-            android:textColor="@color/colorPinkOn"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewNamaUKM"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="nama ukm"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPinkOn"
+        android:textSize="14sp" />
+
 
 </RelativeLayout>

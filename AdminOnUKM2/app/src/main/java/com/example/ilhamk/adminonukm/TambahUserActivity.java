@@ -142,7 +142,8 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                                 });
 
                         //data pengurus
-                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, UKM_ID, id_user, emailP, nama);
+                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, UKM_ID, id_user, emailP,
+                                nama, UKM_ID);
                         //push data ke pengurus
                         databaseReference.child("pengurus").child(UKM_ID).child(id_user).setValue(pengurusInformation)
                                 .addOnCompleteListener(TambahUserActivity.this, new OnCompleteListener<Void>() {
@@ -159,9 +160,7 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                                     }
                                 });
                         //update total anggota ukm
-                        UKMInformation ukmInformation = new UKMInformation(UKM_ID, UKM_Jadwal, UKM_Nama,
-                                UKM_Anggota, UKM_Pembina, UKM_Kategori);
-                        databaseReference.child("ukm").child(UKM_ID).setValue(ukmInformation);
+                        databaseReference.child("ukm").child(UKM_ID+"/totalAnggota").setValue(UKM_Anggota);
                     }
                     else{
                         Toast.makeText(TambahUserActivity.this, "Gagal menambahkan user",
