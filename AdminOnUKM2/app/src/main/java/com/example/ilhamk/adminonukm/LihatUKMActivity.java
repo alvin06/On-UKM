@@ -28,6 +28,10 @@ public class LihatUKMActivity extends AppCompatActivity{
     public static final String UKM_Kat = "kategoriUKM";
     public static final String UKM_Pembina = "pembinaUKM";
     public static final String UKM_totAnggota = "totAnggotaUKM";
+    public static final String UKM_IMURL = "imURL";
+    public static final String UKM_IMPoster = "imPoster";
+    public static final String UKM_Caption = "caption";
+    public static final String UKM_OPREC = "oprecStat" ;
 
     private ListView listViewUKM;
     private List<UKMInformation> ukmList;
@@ -60,7 +64,11 @@ public class LihatUKMActivity extends AppCompatActivity{
                 intent.putExtra(UKM_Jadwal, ukm.getJadwalLatihan());
                 intent.putExtra(UKM_Kat, ukm.getKategori());
                 intent.putExtra(UKM_Pembina, ukm.getPembina());
-                intent.putExtra(UKM_totAnggota, ukm.getTotalAnggota().toString());
+                intent.putExtra(UKM_totAnggota, Integer.toString(ukm.getTotalAnggota()));
+                intent.putExtra(UKM_IMURL, ukm.getLogoUKM().toString());
+                intent.putExtra(UKM_IMPoster, ukm.getPosterUKM().toString());
+                intent.putExtra(UKM_Caption, ukm.getCaption().toString());
+                intent.putExtra(UKM_OPREC, ukm.getOprec().toString());
 
                 startActivity(intent);
             }

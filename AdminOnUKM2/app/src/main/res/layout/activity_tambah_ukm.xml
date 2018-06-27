@@ -8,72 +8,100 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="10dp">
+        android:layout_centerInParent="true"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/addUKMTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:text="Tambah UKM"
             android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/colorPinkOn"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="Tambah UKM"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPinkOn" />
 
         <EditText
             android:id="@+id/editTextNamaUKM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/addUKMTitle"
             android:layout_margin="15dp"
-            android:hint="Nama UKM"
             android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/colorPinkOn"/>
+            android:hint="Nama UKM"
+            android:inputType="text"
+            android:textColor="@color/colorPinkOn" />
 
         <EditText
             android:id="@+id/editTextJadwal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNamaUKM"
             android:layout_margin="15dp"
-            android:hint="Jadwal Latihan"
             android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/colorPinkOn"/>
+            android:hint="Jadwal Latihan"
+            android:inputType="text"
+            android:textColor="@color/colorPinkOn" />
 
         <EditText
             android:id="@+id/editTextPembina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextJadwal"
             android:layout_margin="15dp"
-            android:hint="Pembina UKM"
             android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/colorPinkOn"/>
+            android:hint="Pembina UKM"
+            android:inputType="text"
+            android:textColor="@color/colorPinkOn" />
 
         <Spinner
             android:id="@+id/spinnerKategori"
-            android:theme="@style/Spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextPembina"
+            android:layout_margin="15dp"
             android:entries="@array/kategori"
-            android:layout_margin="15dp">
-        </Spinner>
+            android:theme="@style/Spinner"></Spinner>
+
+        <Button
+            android:id="@+id/btnPilihGambar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerKategori"
+            android:layout_margin="15dp"
+            android:text="Pilih Gambar" />
+
+        <EditText
+            android:id="@+id/editTextNamaFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerKategori"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/btnPilihGambar"
+            android:hint="Nama File"
+            android:padding="15dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         <Button
             android:id="@+id/btnAddUKM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/btnPilihGambar"
             android:layout_margin="15dp"
-            android:text="Tambahkan"
+            android:background="@drawable/roundedbuttonlogin"
             android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/white"
-            android:background="@drawable/roundedbuttonlogin"/>
-
-    </LinearLayout>
-
+            android:text="Tambahkan"
+            android:textColor="@color/white" />
+    </RelativeLayout>
 </RelativeLayout>

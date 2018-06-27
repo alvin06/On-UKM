@@ -28,6 +28,10 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
     public static String PEMBINA_UKM;
     public static String TOTANGGOTA_UKM;
     public static String JADWAL_UKM;
+    public static String IMURL_UKM;
+    public static String IMPoster_UKM;
+    public static String Caption_UKM;
+    public static String Oprec_UKM;
 
     private TextView textViewUKMname;
     private TextView textViewJadwalLatihan;
@@ -54,6 +58,10 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
         KATEGORI_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Kat);
         PEMBINA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Pembina);
         TOTANGGOTA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_totAnggota);
+        IMURL_UKM = intent.getStringExtra(LihatUKMActivity.UKM_IMURL);
+        IMPoster_UKM = intent.getStringExtra(LihatUKMActivity.UKM_IMPoster);
+        Caption_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Caption);
+        Oprec_UKM = intent.getStringExtra(LihatUKMActivity.UKM_OPREC);
 
         textViewUKMname = (TextView) findViewById(R.id.textViewUKMName);
         textViewJadwalLatihan = (TextView) findViewById(R.id.textViewJadwalLatihan);
@@ -131,6 +139,10 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
             intent.putExtra(JADWAL_UKM, JADWAL_UKM);
             intent.putExtra(PEMBINA_UKM, PEMBINA_UKM);
             intent.putExtra(TOTANGGOTA_UKM, TOTANGGOTA_UKM);
+            intent.putExtra(IMURL_UKM, IMURL_UKM);
+            intent.putExtra(IMPoster_UKM, IMPoster_UKM);
+            intent.putExtra(Caption_UKM, Caption_UKM);
+            intent.putExtra(Oprec_UKM, Oprec_UKM);
 
             startActivity(intent);
         }
