@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,9 +40,9 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
 
-    private ImageView posterView;
+    private ImageButton selectPosterButton;
     private EditText caption;
-    private Button selectPosterButton, postRecruitmentButton;
+    private Button postRecruitmentButton;
 
     private Uri imageUri;
 
@@ -63,12 +64,13 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_open_recruitment);
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
 
-        posterView = findViewById(R.id.imageViewPoster);
         caption = findViewById(R.id.caption);
         selectPosterButton = findViewById(R.id.selectPosterButton);
         postRecruitmentButton = findViewById(R.id.postButton);
+
+        ukm = getIntent().getParcelableExtra("ukmTag");
 
         selectPosterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,16 +98,20 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
             progressDialog.setTitle("Posting....");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("poster/" + UUID.randomUUID().toString()); //nanti ganti UUID ke ukm.getNamaUkm()
+            StorageReference ref = storageReference.child("poster/" + ukm.getNamaUKM()); //nanti ganti UUID ke ukm.getNamaUkm()
             ref.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             //dapetin download url
                             //dapetin caption
+                            ukm.setCaption(caption.getText().toString().trim());
+                            ukm.setPosterUKM(taskSnapshot.getDownloadUrl().toString());
                             //update poster, caption, status ukm
+                            databaseReference.child(ukm.getIdUKM() + "/caption").setValue(ukm.getCaption());
+                            databaseReference.child(ukm.getIdUKM() + "/posterUKM").setValue(ukm.getPosterUKM());
                             progressDialog.dismiss();
-                            Toast.makeText(OpenRecruitmentActivity.this,"Recruitment Posted " + taskSnapshot.getDownloadUrl().toString(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(OpenRecruitmentActivity.this,"Recruitment Posted " + taskSnapshot.getDownloadUrl().toString(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -141,7 +147,7 @@ public class OpenRecruitmentActivity extends AppCompatActivity {
             imageUri = data.getData();
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
-                posterView.setImageBitmap(bitmap);
+                selectPosterButton.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

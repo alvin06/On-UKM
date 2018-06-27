@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.alvinafandi.on_ukm.classes.User;
 import com.example.alvinafandi.on_ukm.classes.ukmTest;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,7 @@ public class UkmHomeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private DatabaseReference databaseReference;
+    private User user;
 
     @Override
     public void onResume(){
@@ -38,6 +40,8 @@ public class UkmHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ukm_home);
+
+        user = getIntent().getParcelableExtra("userTag");
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("ukm");
         databaseReference.keepSynced(true);
@@ -59,8 +63,8 @@ public class UkmHomeActivity extends AppCompatActivity {
 
                     @Override
                     protected void populateViewHolder(final ukmTestViewHolder viewHolder, final ukmTest model, final int position) {
-                        viewHolder.setNamaUkm(model.getNamaUkm());
-                        viewHolder.setLogo(getApplicationContext(), model.getLogoUkm());
+                        viewHolder.setNamaUkm(model.getNamaUKM());
+                        viewHolder.setLogo(getApplicationContext(), model.getLogoUKM());
 
                         viewHolder.view.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -68,6 +72,7 @@ public class UkmHomeActivity extends AppCompatActivity {
                                 //ukmTest ukm = model;
                                 Intent intent = new Intent(UkmHomeActivity.this, UKMActivity.class); //buat intent dari sini ke activity lain
                                 intent.putExtra("ukmTag", model); //masukin objek ke intent
+                                intent.putExtra("userTag", user);
                                 startActivity(intent);
                             }
                         });
@@ -105,6 +110,7 @@ public class UkmHomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.tab_profileOff:
                     Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent.putExtra("userTag", user);
                     startActivity(intent);
                     return true;
             }

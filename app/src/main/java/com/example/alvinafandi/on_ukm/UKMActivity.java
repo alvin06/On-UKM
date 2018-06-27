@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +30,8 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
 
     private ukmTest ukm;
     private User user;
-    private TextView namaTextView, anggotaTextView;
-    private ImageView logoImageView;
+    private TextView namaTextView, anggotaTextView, captionTextView;
+    private ImageView logoImageView, posterImageView;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private Pendaftaran pendaftaran;
@@ -53,19 +54,24 @@ public class UKMActivity extends AppCompatActivity implements View.OnClickListen
         namaTextView = findViewById(R.id.textViewUkm);
         anggotaTextView = findViewById(R.id.anggota);
         logoImageView = findViewById(R.id.logoUkm);
+        captionTextView = findViewById(R.id.caption);
+        posterImageView = findViewById(R.id.poster);
 
         ukm = getIntent().getParcelableExtra("ukmTag"); //nerima parcel yg namanya "ukmTag"
+        user = getIntent().getParcelableExtra("userTag");
         databaseReference = FirebaseDatabase.getInstance().getReference("Pendaftaran_Test");
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
-        pendaftaran = new Pendaftaran(firebaseUser.getUid(), ukm.getIdUkm());
+        pendaftaran = new Pendaftaran(firebaseUser.getUid(), ukm.getIdUKM());
 
-        Picasso.with(getApplicationContext()).load(ukm.getLogoUkm()).into(logoImageView);
-        namaTextView.setText(ukm.getNamaUkm());
+        Picasso.with(getApplicationContext()).load(ukm.getLogoUKM()).into(logoImageView);
+        Picasso.with(getApplicationContext()).load(ukm.getPosterUKM()).into(posterImageView);
+        namaTextView.setText(ukm.getNamaUKM());
+        captionTextView.setText(ukm.getCaption());
         anggotaTextView.setText(Integer.toString(ukm.getTotalAnggota()));
 
         //jika user role ==  pengurus && user ukm == id ukm
-        if(true) {
+        if(TextUtils.equals(user.getRole(), "Pengurus") && TextUtils.equals(user.getIdUKM(), ukm.getIdUKM())) {
 
             //jika pendaftaran belom dibuka
             if(true) {

@@ -14,27 +14,33 @@ public class ukmTest implements Parcelable{
     private String logoUKM;
     private String namaUKM;
     private String pembina;
+    private String caption;
+    private String posterUKM;
+    private Boolean oprec;
     private int totalAnggota;
 
     public ukmTest() {
     }
 
-    public ukmTest(String idUkm, String jadwalLatihan, String kategori, String logoUkm, String namaUkm, String pembina, int totalAnggota) {
-        this.idUKM = idUkm;
+    public ukmTest(String idUKM, String jadwalLatihan, String kategori, String logoUKM, String namaUKM, String pembina, String caption, String posterUKM, Boolean oprec, int totalAnggota) {
+        this.idUKM = idUKM;
         this.jadwalLatihan = jadwalLatihan;
         this.kategori = kategori;
-        this.logoUKM = logoUkm;
-        this.namaUKM = namaUkm;
+        this.logoUKM = logoUKM;
+        this.namaUKM = namaUKM;
         this.pembina = pembina;
+        this.caption = caption;
+        this.posterUKM = posterUKM;
+        this.oprec = oprec;
         this.totalAnggota = totalAnggota;
     }
 
-    public String getIdUkm() {
+    public String getIdUKM() {
         return idUKM;
     }
 
-    public void setIdUkm(String idUkm) {
-        this.idUKM = idUkm;
+    public void setIdUKM(String idUKM) {
+        this.idUKM = idUKM;
     }
 
     public String getJadwalLatihan() {
@@ -53,20 +59,20 @@ public class ukmTest implements Parcelable{
         this.kategori = kategori;
     }
 
-    public String getLogoUkm() {
+    public String getLogoUKM() {
         return logoUKM;
     }
 
-    public void setLogoUkm(String logoUkm) {
-        this.logoUKM = logoUkm;
+    public void setLogoUKM(String logoUKM) {
+        this.logoUKM = logoUKM;
     }
 
-    public String getNamaUkm() {
+    public String getNamaUKM() {
         return namaUKM;
     }
 
-    public void setNamaUkm(String namaUkm) {
-        this.namaUKM = namaUkm;
+    public void setNamaUKM(String namaUKM) {
+        this.namaUKM = namaUKM;
     }
 
     public String getPembina() {
@@ -77,6 +83,30 @@ public class ukmTest implements Parcelable{
         this.pembina = pembina;
     }
 
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public String getPosterUKM() {
+        return posterUKM;
+    }
+
+    public void setPosterUKM(String posterUKM) {
+        this.posterUKM = posterUKM;
+    }
+
+    public Boolean getOprec() {
+        return oprec;
+    }
+
+    public void setOprec(Boolean oprec) {
+        this.oprec = oprec;
+    }
+
     public int getTotalAnggota() {
         return totalAnggota;
     }
@@ -85,13 +115,13 @@ public class ukmTest implements Parcelable{
         this.totalAnggota = totalAnggota;
     }
 
-    public static Parcelable.Creator<ukmTest> getCREATOR() {
+    public static Creator<ukmTest> getCREATOR() {
         return CREATOR;
     }
 
     //ngebuat parcel
     public ukmTest(Parcel in) {
-        String[] data = new String[7]; //bikin array string sebanyak atributnya
+        String[] data = new String[10]; //bikin array string sebanyak atributnya
 
         in.readStringArray(data);
         this.idUKM = data[0]; //masukin tiap atribut ke array
@@ -100,7 +130,10 @@ public class ukmTest implements Parcelable{
         this.logoUKM = data[3];
         this.namaUKM = data[4];
         this.pembina = data[5];
-        this.totalAnggota = Integer.parseInt(data[6]);
+        this.caption = data[6];
+        this.posterUKM = data[7];
+        this.oprec = Boolean.parseBoolean(data[8]);
+        this.totalAnggota = Integer.parseInt(data[9]);
     }
 
     @Override
@@ -111,7 +144,7 @@ public class ukmTest implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[]{this.idUKM, this.jadwalLatihan, this.kategori, this.logoUKM,
-                this.namaUKM, this.pembina, String.valueOf(this.totalAnggota)});
+                this.namaUKM, this.pembina, this.caption, this.posterUKM, String.valueOf(this.oprec),String.valueOf(this.totalAnggota)});
     }
 
     public static final Parcelable.Creator<ukmTest> CREATOR = new Parcelable.Creator<ukmTest>() {
