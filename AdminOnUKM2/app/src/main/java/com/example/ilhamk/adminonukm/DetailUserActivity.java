@@ -27,15 +27,6 @@ import java.util.List;
 
 public class DetailUserActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static String NAMA_U;
-    public static String ANGKATAN_U;
-    public static String EMAIL_U;
-    public static String ID_U;
-    public static String JURUSAN_U;
-    public static String NIM_U;
-    public static String TELP_U;
-    public static String ROLE_U;
-
     private TextView textViewAngkatanU;
     private TextView textViewNamaU;
     private TextView textViewNIMU;
@@ -44,22 +35,19 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
 
     private Button btnEditU;
     private Button btnHapusU;
+    private Button btnUpU;
 
     private DatabaseReference databaseReference;
+
+    private UserInformation user, users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_user);
 
-        Intent intent = getIntent();
-        String cek = intent.getStringExtra(LihatUserActivity.USER_ID);
-        if(TextUtils.equals(cek, null)){
-            cek = intent.getStringExtra(LihatAnggotaActivity.USER_ID);
-        }
-
-        ID_U = cek;
-        databaseReference = FirebaseDatabase.getInstance().getReference("user").child(ID_U);
+        user = getIntent().getParcelableExtra("userTag");
+        databaseReference = FirebaseDatabase.getInstance().getReference("user").child(user.getId_user());
 
         textViewAngkatanU = (TextView) findViewById(R.id.textViewAngkatanU);
         textViewNamaU = (TextView) findViewById(R.id.textViewNamaU);
@@ -70,20 +58,13 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                UserInformation users = dataSnapshot.getValue(UserInformation.class);
-                ANGKATAN_U = users.getAngkatan().toString();
-                NAMA_U = users.getNama();
-                NIM_U = users.getNim();
-                TELP_U = users.getPhone().toString();
-                JURUSAN_U = users.getJurusan();
-                ROLE_U = users.getRole();
-                EMAIL_U = users.getEmail();
+                users = dataSnapshot.getValue(UserInformation.class);
 
-                textViewAngkatanU.setText(ANGKATAN_U);
-                textViewNamaU.setText(NAMA_U);
-                textViewNIMU.setText(NIM_U);
-                textViewTelpU.setText(TELP_U);
-                textViewJurusanU.setText(JURUSAN_U);
+                textViewAngkatanU.setText(String.valueOf(users.getAngkatan()));
+                textViewNamaU.setText(users.getNama());
+                textViewNIMU.setText(users.getNim());
+                textViewTelpU.setText(users.getPhone());
+                textViewJurusanU.setText(users.getJurusan());
             }
 
             @Override
@@ -93,21 +74,26 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
         });
 
         btnEditU = (Button) findViewById(R.id.btnEditUs);
-        btnHapusU = (Button) findViewById(R.id.btnHapusUser);
+//        btnHapusU = (Button) findViewById(R.id.btnHapusUser);
+        btnUpU = findViewById(R.id.btnUpdateUs);
 
-        btnHapusU.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteUser(ID_U);
-            }
-        });
+        if(!TextUtils.equals(user.getRole(), "Biasa")){
+            btnUpU.setVisibility(View.INVISIBLE);
+        }
+
+//        btnHapusU.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                deleteUser(users.getId_user());
+//            }
+//        });
         btnEditU.setOnClickListener(this);
+        btnUpU.setOnClickListener(this);
     }
 
     private void deleteUser(String idUser){
 //        DatabaseReference dbUser = FirebaseDatabase.getInstance().getReference("user").child(idUser);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 //        dbUser.removeValue();
         Toast.makeText(getApplicationContext(), idUser, Toast.LENGTH_SHORT).show();
@@ -117,16 +103,12 @@ public class DetailUserActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if(v == btnEditU){
             Intent intent = new Intent(getApplicationContext(), EditUserActivity.class);
-
-            intent.putExtra(NAMA_U, NAMA_U);
-            intent.putExtra(ANGKATAN_U, ANGKATAN_U);
-            intent.putExtra(NIM_U, NIM_U);
-            intent.putExtra(ID_U, ID_U);
-            intent.putExtra(TELP_U, TELP_U);
-            intent.putExtra(EMAIL_U, EMAIL_U);
-            intent.putExtra(ROLE_U, ROLE_U);
-            intent.putExtra(JURUSAN_U, JURUSAN_U);
-
+            intent.putExtra("userTag", users);
+            startActivity(intent);
+        }
+        if(v == btnUpU){
+            Intent intent = new Intent(getApplicationContext(), UpgradeUserActivity.class);
+            intent.putExtra("userTag", users);
             startActivity(intent);
         }
     }

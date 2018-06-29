@@ -14,7 +14,7 @@
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detail User"
+        android:text="Detail Pengguna"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/colorPinkOn"
         android:textAlignment="center"
@@ -257,31 +257,38 @@
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="117dp"
-        android:layout_marginStart="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="115dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/roboto_regular"
         android:text="Edit Pengguna"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
-        android:textColor="@color/white"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="41dp" />
+        android:textColor="@color/white" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btnHapusUser"-->
+        <!--android:layout_width="136dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignTop="@+id/btnEditUs"-->
+        <!--android:layout_marginEnd="42dp"-->
+        <!--android:background="@drawable/roundedbuttonwarning"-->
+        <!--android:fontFamily="@font/roboto_regular"-->
+        <!--android:text="Hapus Pengguna"-->
+        <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"-->
+        <!--android:textColor="@color/white" />-->
 
     <Button
-        android:id="@+id/btnHapusUser"
+        android:id="@+id/btnUpdateUs"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnEditUs"
-        android:layout_below="@id/textViewTotAnggonta"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/roundedbuttonwarning"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
+        android:background="@drawable/roundedbuttonsuccess"
         android:fontFamily="@font/roboto_regular"
-        android:text="Hapus Pengguna"
+        android:text="Ganti Peran"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
-        android:textColor="@color/white"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

@@ -31,13 +31,6 @@ import java.util.List;
 
 public class TambahUserActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    public static String UKM_ID = "id_ukm";
-    public static String UKM_Jadwal = "jadwal_ukm";
-    public static String UKM_Nama = "nama_ukm";
-    public static int UKM_Anggota = 0;
-    public static String UKM_Pembina = "pembina_ukm";
-    public static String UKM_Kategori = "kategori_ukm";
-
     private EditText editTextEmail;
     private EditText editTextPass;
 
@@ -50,6 +43,11 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
     private ProgressDialog progressDialog;
 
     List<UKMInformation> ukmInformationList;
+
+    UKMInformation ukmInformation;
+
+    private String emailP, passwordP, nama, nim, jurusan, phone, role, jabatan, ktmUrl;
+    private int angkatan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,17 +72,18 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
     }
 
     public void addUser(View view){
-        final String emailP = editTextEmail.getText().toString().trim();
-        String passwordP = editTextPass.getText().toString().trim();
+        emailP = editTextEmail.getText().toString().trim();
+        passwordP = editTextPass.getText().toString().trim();
 
-        final String nama = "Belum diisi";
-        final String nim  = "Belum diisi";
-        final String jurusan = "Belum diisi";
-        final String phone = "-";
-        final Integer angkatan = 50;
-        final String role = "Pengurus";
+        nama = "Belum diisi";
+        nim  = "Belum diisi";
+        jurusan = "Belum diisi";
+        phone = "-";
+        angkatan = 50;
+        role = "Pengurus";
+        ktmUrl = "kosong";
 
-        final String jabatan = spinnerRole.getSelectedItem().toString();
+        jabatan = spinnerRole.getSelectedItem().toString();
 
         if(TextUtils.isEmpty(emailP)) {
             Toast.makeText(this, "Masukkan Email User", Toast.LENGTH_SHORT).show();
@@ -120,7 +119,7 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                         //data user
                         String id_user = firebaseAuth.getCurrentUser().getUid();
                         UserInformation userInformation = new UserInformation(id_user, nama, nim, jurusan, phone,
-                                angkatan, role, emailP);
+                                angkatan, role, emailP, ukmInformation.getIdUKM(), ktmUrl);
                         //push data ke user
                         databaseReference.child("user").child(id_user).setValue(userInformation)
                                 .addOnCompleteListener(TambahUserActivity.this, new OnCompleteListener<Void>() {
@@ -142,10 +141,10 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                                 });
 
                         //data pengurus
-                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, UKM_ID, id_user, emailP,
-                                nama, UKM_ID);
+                        PengurusInformation pengurusInformation = new PengurusInformation(jabatan, ukmInformation.getIdUKM(), id_user, emailP,
+                                nama);
                         //push data ke pengurus
-                        databaseReference.child("pengurus").child(UKM_ID).child(id_user).setValue(pengurusInformation)
+                        databaseReference.child("pengurus").child(ukmInformation.getIdUKM()).child(id_user).setValue(pengurusInformation)
                                 .addOnCompleteListener(TambahUserActivity.this, new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -160,7 +159,7 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
                                     }
                                 });
                         //update total anggota ukm
-                        databaseReference.child("ukm").child(UKM_ID+"/totalAnggota").setValue(UKM_Anggota);
+                        databaseReference.child("ukm").child(ukmInformation.getIdUKM()+"/totalAnggota").setValue(ukmInformation.getTotalAnggota());
                     }
                     else{
                         Toast.makeText(TambahUserActivity.this, "Gagal menambahkan user",
@@ -205,15 +204,8 @@ public class TambahUserActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        UKMInformation ukmInformation = ukmInformationList.get(position);
-
-        UKM_ID = ukmInformation.getIdUKM();
-        UKM_Jadwal = ukmInformation.getJadwalLatihan();
-        UKM_Nama = ukmInformation.getNamaUKM();
-        UKM_Anggota = ukmInformation.getTotalAnggota() + 1;
-        UKM_Pembina = ukmInformation.getPembina();
-        UKM_Kategori = ukmInformation.getKategori();
-
+        ukmInformation = ukmInformationList.get(position);
+        ukmInformation.setTotalAnggota(ukmInformation.getTotalAnggota()+1);
     }
 
     @Override

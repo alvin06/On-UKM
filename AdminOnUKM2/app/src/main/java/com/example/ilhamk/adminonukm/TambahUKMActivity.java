@@ -3,8 +3,10 @@ package com.example.ilhamk.adminonukm;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,18 +30,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TambahUKMActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int PICK_IMAGE_REQUEST = 1;
 
     private Button btnAddUKM;
-    private Button btnPilihGambar;
+    private ImageView btnPilihGambar;
     private EditText editTextNamaUKM;
     private EditText editTextJadwal;
     private EditText editTextPembina;
-    private EditText editTextFile;
+
     private Spinner spinnerKategori;
+
+    private ImageView imageViewUpload;
 
     private Uri mImageUri;
 
@@ -49,13 +58,16 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
 
     private ProgressDialog progressDialog;
 
+    private String namaUKM, jadwalLatihan, pembina, kategori;
+    private int totalAnggota;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_ukm);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("ukm");
-        storageReference = FirebaseStorage.getInstance().getReference("logoUKM");
+        storageReference = FirebaseStorage.getInstance().getReference("logo");
 
         progressDialog = new ProgressDialog(this);
         btnAddUKM = (Button) findViewById(R.id.btnAddUKM);
@@ -63,8 +75,9 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
         editTextNamaUKM = (EditText) findViewById(R.id.editTextNamaUKM);
         editTextJadwal = (EditText) findViewById(R.id.editTextJadwal);
         editTextPembina = (EditText) findViewById(R.id.editTextPembina);
-        editTextFile = findViewById(R.id.editTextNamaFile);
         spinnerKategori = (Spinner) findViewById(R.id.spinnerKategori);
+
+//        imageViewUpload = findViewById(R.id.imageLogoUpload);
 
         btnPilihGambar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +103,14 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null
                 && data.getData() != null){
             mImageUri = data.getData();
+            try{
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mImageUri);
+                btnPilihGambar.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -100,11 +121,11 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void addUKM(){
-        String namaUKM = editTextNamaUKM.getText().toString().trim();
-        String jadwalLatihan = editTextJadwal.getText().toString().trim();
-        Integer totalAnggota = 0;
-        String pembina = editTextPembina.getText().toString().trim();
-        String kategori = spinnerKategori.getSelectedItem().toString();
+        namaUKM = editTextNamaUKM.getText().toString().trim();
+        jadwalLatihan = editTextJadwal.getText().toString().trim();
+        totalAnggota = 0;
+        pembina = editTextPembina.getText().toString().trim();
+        kategori = spinnerKategori.getSelectedItem().toString();
 
         if(TextUtils.isEmpty(namaUKM)){
             Toast.makeText(this, "Nama UKM tidak boleh kosong", Toast.LENGTH_SHORT).show();
@@ -119,6 +140,9 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
             pembina = "Belum ada";
         }
 
+        progressDialog.setMessage("Menambahkan UKM..");
+        progressDialog.show();
+
         if(mImageUri != null){
             StorageReference fileReference = storageReference.child(namaUKM+"."+getFileExtension(mImageUri));
 
@@ -126,43 +150,42 @@ public class TambahUKMActivity extends AppCompatActivity implements View.OnClick
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(getApplicationContext(), "Upload successful", Toast.LENGTH_SHORT).show();
                             imURL = taskSnapshot.getDownloadUrl().toString();
+
+                            String key = databaseReference.child("ukm").push().getKey();
+
+                            UKMInformation ukmInformation = new UKMInformation(key, jadwalLatihan, namaUKM,
+                                    totalAnggota, pembina, kategori, imURL, "Coming Soon", "Coming Soon", false);
+
+                            databaseReference.child(key).setValue(ukmInformation)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            progressDialog.dismiss();
+                                            if(task.isSuccessful()){
+                                                finish();
+                                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                                Toast.makeText(TambahUKMActivity.this, "Berhasil Menambahkan UKM",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                            else{
+                                                Toast.makeText(TambahUKMActivity.this, "Gagal Menambahkan UKM",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
         else { Toast.makeText(getApplicationContext(), "Tidak ada gambar yang dipilih", Toast.LENGTH_SHORT).show(); }
-
-        String key = databaseReference.child("ukm").push().getKey();
-        UKMInformation ukmInformation = new UKMInformation(key, jadwalLatihan, namaUKM,
-                totalAnggota, pembina, kategori, imURL, "Coming Soon", "Coming Soon", false);
-
-        progressDialog.setMessage("Menambahkan UKM..");
-        progressDialog.show();
-
-        databaseReference.child(key).setValue(ukmInformation)
-            .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    progressDialog.dismiss();
-                    if(task.isSuccessful()){
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        Toast.makeText(TambahUKMActivity.this, "Berhasil Menambahkan UKM",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(TambahUKMActivity.this, "Gagal Menambahkan UKM",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
     }
 
     @Override

@@ -22,13 +22,13 @@ import java.util.List;
 
 public class LihatUserActivity extends AppCompatActivity{
 
-    public static final String USER_ID = "idUser";
-
     private ListView listViewUser;
     private List<UserInformation> userList;
 
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
+
+    private UserInformation user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,11 @@ public class LihatUserActivity extends AppCompatActivity{
         listViewUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                UserInformation user = userList.get(position);
+                user = userList.get(position);
 
                 Intent intent = new Intent(getApplicationContext(), DetailUserActivity.class);
 
-                intent.putExtra(USER_ID, user.getId_user());
+                intent.putExtra("userTag", user);
 
                 startActivity(intent);
             }

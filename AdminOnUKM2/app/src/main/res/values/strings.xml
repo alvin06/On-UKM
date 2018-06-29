@@ -4,7 +4,6 @@
 
     <array name="tipe">
         <item>DPM</item>
-        <item>Pengurus</item>
         <item>Biasa</item>
     </array>
 
@@ -13,6 +12,7 @@
         <item>Wakil Ketua</item>
         <item>Sekretaris</item>
         <item>Bendahara</item>
+        <item>Pimpinan</item>
         <item>Anggota</item>
     </array>
 

@@ -22,7 +22,7 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_margin="8dp"/>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/logoUKM"
         android:layout_width="150dp"
         android:layout_height="100dp"

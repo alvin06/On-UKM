@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/spinnerUpUKM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Spinner"
+        android:layout_margin="8dp"
+        android:spinnerMode="dropdown">
+    </Spinner>
+
+    <Button
+        android:id="@+id/btnSaveP"
+        android:layout_below="@+id/spinnerUpUKM"
+        android:layout_centerHorizontal="true"
+        android:text="Pilih"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

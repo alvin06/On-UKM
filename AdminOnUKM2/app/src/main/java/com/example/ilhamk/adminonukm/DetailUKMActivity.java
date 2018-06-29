@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -21,17 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailUKMActivity extends AppCompatActivity implements View.OnClickListener{
-
-    public static String ID_UKM;
-    public static String NAMA_UKM;
-    public static String KATEGORI_UKM;
-    public static String PEMBINA_UKM;
-    public static String TOTANGGOTA_UKM;
-    public static String JADWAL_UKM;
-    public static String IMURL_UKM;
-    public static String IMPoster_UKM;
-    public static String Caption_UKM;
-    public static String Oprec_UKM;
 
     private TextView textViewUKMname;
     private TextView textViewJadwalLatihan;
@@ -43,25 +34,18 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
     private Button btnLihatAnggota;
     private Button btnHapusUKM;
 
+    private ImageView imageViewLogo;
+
     private ProgressDialog progressDialog;
+
+    private UKMInformation ukmInformation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_ukm);
 
-        Intent intent = getIntent();
-
-        ID_UKM = intent.getStringExtra(LihatUKMActivity.UKM_ID);
-        NAMA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Nama);
-        JADWAL_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Jadwal);
-        KATEGORI_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Kat);
-        PEMBINA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Pembina);
-        TOTANGGOTA_UKM = intent.getStringExtra(LihatUKMActivity.UKM_totAnggota);
-        IMURL_UKM = intent.getStringExtra(LihatUKMActivity.UKM_IMURL);
-        IMPoster_UKM = intent.getStringExtra(LihatUKMActivity.UKM_IMPoster);
-        Caption_UKM = intent.getStringExtra(LihatUKMActivity.UKM_Caption);
-        Oprec_UKM = intent.getStringExtra(LihatUKMActivity.UKM_OPREC);
+        ukmInformation = getIntent().getParcelableExtra("ukmTag");
 
         textViewUKMname = (TextView) findViewById(R.id.textViewUKMName);
         textViewJadwalLatihan = (TextView) findViewById(R.id.textViewJadwalLatihan);
@@ -73,22 +57,26 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
         btnLihatAnggota = (Button) findViewById(R.id.btnLihatAnggota);
         btnHapusUKM = findViewById(R.id.btnHapusUKM);
 
+        imageViewLogo = findViewById(R.id.logoUKM);
+
+        Picasso.with(getApplicationContext()).load(ukmInformation.getLogoUKM()).into(imageViewLogo);
+//
         btnEditUKM.setOnClickListener(this);
         btnLihatAnggota.setOnClickListener(this);
         btnHapusUKM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteUKM(ID_UKM);
+                deleteUKM(ukmInformation.getIdUKM());
             }
         });
 
         progressDialog = new ProgressDialog(this);
 
-        textViewUKMname.setText(NAMA_UKM);
-        textViewJadwalLatihan.setText(JADWAL_UKM);
-        textViewKategori.setText(KATEGORI_UKM);
-        textViewPembina.setText(PEMBINA_UKM);
-        textViewTotAnggota.setText(TOTANGGOTA_UKM);
+        textViewUKMname.setText(ukmInformation.getNamaUKM());
+        textViewJadwalLatihan.setText(ukmInformation.getJadwalLatihan());
+        textViewKategori.setText(ukmInformation.getKategori());
+        textViewPembina.setText(ukmInformation.getPembina());
+        textViewTotAnggota.setText(String.valueOf(ukmInformation.getTotalAnggota()));
     }
 
     private void deleteUKM(String idUKM){
@@ -107,6 +95,7 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
                 for(DataSnapshot pengurusSnapshot : dataSnapshot.getChildren()){
                     String idPengurus = pengurusSnapshot.child("id_user").getValue(String.class);
                     dbuser.child(idPengurus+"/role").setValue("Biasa");
+                    dbuser.child(idPengurus+"/idUKM").setValue("kosong");
                 }
             }
 
@@ -127,22 +116,13 @@ public class DetailUKMActivity extends AppCompatActivity implements View.OnClick
         if(v == btnLihatAnggota){
             Intent intent = new Intent(getApplicationContext(), LihatAnggotaActivity.class);
 
-            intent.putExtra(ID_UKM, ID_UKM);
+            intent.putExtra("ukmTag", ukmInformation);
             startActivity(intent);
         }
         if(v == btnEditUKM){
             Intent intent = new Intent(getApplicationContext(), EditUKMActivity.class);
 
-            intent.putExtra(ID_UKM, ID_UKM);
-            intent.putExtra(NAMA_UKM, NAMA_UKM);
-            intent.putExtra(KATEGORI_UKM, KATEGORI_UKM);
-            intent.putExtra(JADWAL_UKM, JADWAL_UKM);
-            intent.putExtra(PEMBINA_UKM, PEMBINA_UKM);
-            intent.putExtra(TOTANGGOTA_UKM, TOTANGGOTA_UKM);
-            intent.putExtra(IMURL_UKM, IMURL_UKM);
-            intent.putExtra(IMPoster_UKM, IMPoster_UKM);
-            intent.putExtra(Caption_UKM, Caption_UKM);
-            intent.putExtra(Oprec_UKM, Oprec_UKM);
+            intent.putExtra("ukmTag", ukmInformation);
 
             startActivity(intent);
         }

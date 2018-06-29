@@ -22,17 +22,6 @@ import java.util.List;
 
 public class LihatUKMActivity extends AppCompatActivity{
 
-    public static final String UKM_ID = "idUKM";
-    public static final String UKM_Nama = "namaUKM";
-    public static final String UKM_Jadwal = "jadwalUKM";
-    public static final String UKM_Kat = "kategoriUKM";
-    public static final String UKM_Pembina = "pembinaUKM";
-    public static final String UKM_totAnggota = "totAnggotaUKM";
-    public static final String UKM_IMURL = "imURL";
-    public static final String UKM_IMPoster = "imPoster";
-    public static final String UKM_Caption = "caption";
-    public static final String UKM_OPREC = "oprecStat" ;
-
     private ListView listViewUKM;
     private List<UKMInformation> ukmList;
 
@@ -59,16 +48,7 @@ public class LihatUKMActivity extends AppCompatActivity{
 
                 Intent intent = new Intent(getApplicationContext(), DetailUKMActivity.class);
 
-                intent.putExtra(UKM_ID, ukm.getIdUKM());
-                intent.putExtra(UKM_Nama, ukm.getNamaUKM());
-                intent.putExtra(UKM_Jadwal, ukm.getJadwalLatihan());
-                intent.putExtra(UKM_Kat, ukm.getKategori());
-                intent.putExtra(UKM_Pembina, ukm.getPembina());
-                intent.putExtra(UKM_totAnggota, Integer.toString(ukm.getTotalAnggota()));
-                intent.putExtra(UKM_IMURL, ukm.getLogoUKM().toString());
-                intent.putExtra(UKM_IMPoster, ukm.getPosterUKM().toString());
-                intent.putExtra(UKM_Caption, ukm.getCaption().toString());
-                intent.putExtra(UKM_OPREC, ukm.getOprec().toString());
+                intent.putExtra("ukmTag", ukm);
 
                 startActivity(intent);
             }

@@ -21,7 +21,7 @@ public class UKMList extends ArrayAdapter<UKMInformation> {
    private List<UKMInformation> ukmList;
 
    public UKMList(Activity context, List<UKMInformation> ukmList){
-        super(context, R.layout.list_layout_user, ukmList);
+        super(context, R.layout.list_layout_ukm, ukmList);
         this.context = context;
         this.ukmList = ukmList;
    }
@@ -40,10 +40,10 @@ public class UKMList extends ArrayAdapter<UKMInformation> {
     private View initView(int pos, View convertView, ViewGroup parent){
         LayoutInflater inflater = context.getLayoutInflater();
 
-        View listViewItem = inflater.inflate(R.layout.list_layout_user, null, true);
+        View listViewItem = inflater.inflate(R.layout.list_layout_ukm, null, true);
 
-        TextView textViewNamaUKM = listViewItem.findViewById(R.id.textViewNamaUser);
-        ImageView imageViewLogo = listViewItem.findViewById(R.id.imageViewUKM);
+        TextView textViewNamaUKM = listViewItem.findViewById(R.id.textViewNamaUKM);
+        ImageView imageViewLogo = listViewItem.findViewById(R.id.imageLogoUKM);
 
         UKMInformation ukmInformation = ukmList.get(pos);
 

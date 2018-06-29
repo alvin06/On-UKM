@@ -19,7 +19,7 @@ import java.util.List;
 
 public class LihatAnggotaActivity extends AppCompatActivity {
 
-    public static final String USER_ID = "idUser";
+//    public static final String USER_ID = "idUser";
 
     private ListView listViewAnggota;
     private List<PengurusInformation> pengurusList;
@@ -27,15 +27,20 @@ public class LihatAnggotaActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
 
+    private String idUKM;
+
+    private UKMInformation ukmInformation;
+    private UserInformation user;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_anggota);
 
-        Intent intent = getIntent();
-        String idUKM = intent.getStringExtra(DetailUKMActivity.ID_UKM);
+        ukmInformation = getIntent().getParcelableExtra("ukmTag");
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("pengurus").child(idUKM);
+        databaseReference = FirebaseDatabase.getInstance().getReference("pengurus").child(ukmInformation.getIdUKM());
 
         listViewAnggota = (ListView) findViewById(R.id.listViewAnggota);
 
@@ -48,11 +53,26 @@ public class LihatAnggotaActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PengurusInformation pengurus = pengurusList.get(position);
 
-                Intent intent = new Intent(getApplicationContext(), DetailUserActivity.class);
+                DatabaseReference dbUser = FirebaseDatabase.getInstance().getReference("user").child(pengurus.getId_user());
 
-                intent.putExtra(USER_ID, pengurus.getId_user());
+                dbUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        user = dataSnapshot.getValue(UserInformation.class);
 
-                startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), DetailUserActivity.class);
+
+                        intent.putExtra("userTag", user);
+
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
             }
         });
     }

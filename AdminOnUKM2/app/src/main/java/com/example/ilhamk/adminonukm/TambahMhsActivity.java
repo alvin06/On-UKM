@@ -25,9 +25,6 @@ public class TambahMhsActivity extends AppCompatActivity implements View.OnClick
 
     private EditText editTextEmailM;
     private EditText editTextPassM;
-//    private EditText editTextNamaM;
-//    private EditText editTextNIMM;
-//    private EditText editTextJurusanM;
     private Spinner spinnerSbg;
 
     private Button btnAddMhs;
@@ -36,6 +33,9 @@ public class TambahMhsActivity extends AppCompatActivity implements View.OnClick
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+
+    private String emailM, passM, namaM, nimM, jurusanM, phone, role, ktmUrl, idUKM;
+    private int angkatan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +47,6 @@ public class TambahMhsActivity extends AppCompatActivity implements View.OnClick
 
         editTextEmailM = (EditText) findViewById(R.id.editTextEmailM);
         editTextPassM = (EditText) findViewById(R.id.editTextPassM);
-//        editTextNamaM = (EditText) findViewById(R.id.editTextNamaM);
-//        editTextNIMM = (EditText) findViewById(R.id.editTextNIMM);
-//        editTextJurusanM = (EditText) findViewById(R.id.editTextJurusanM);
 
         spinnerSbg = (Spinner) findViewById(R.id.spinnerSbg);
 
@@ -61,15 +58,17 @@ public class TambahMhsActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void addMhs(){
-        final String emailM = editTextEmailM.getText().toString().trim();
-        final String passM = editTextPassM.getText().toString().trim();
+        emailM = editTextEmailM.getText().toString().trim();
+        passM = editTextPassM.getText().toString().trim();
 
-        final String namaM = "Belum diisi";
-        final String nimM = "Belum diisi";
-        final String jurusanM = "Belum diisi";
-        final String phone = "-";
-        final Integer angkatan = 50;
-        final String role = spinnerSbg.getSelectedItem().toString();
+        namaM = "Belum diisi";
+        nimM = "Belum diisi";
+        jurusanM = "Belum diisi";
+        phone = "-";
+        angkatan = 50;
+        role = spinnerSbg.getSelectedItem().toString();
+        ktmUrl = "kosong";
+        idUKM = "kosong";
 
         if(TextUtils.isEmpty(emailM)) {
             Toast.makeText(this, "Masukkan Email User", Toast.LENGTH_SHORT).show();
@@ -83,17 +82,13 @@ public class TambahMhsActivity extends AppCompatActivity implements View.OnClick
         progressDialog.setMessage("Menambahkan Mahasiswa...");
         progressDialog.show();
 
-//        String id_user = "Belum diisi";
-//        final String key = databaseReference.push().getKey();
-//        final UserInformation userInformation = new UserInformation(key, id_user, namaM,nimM,jurusanM, phone, angkatan, role, emailM);
-
         firebaseAuth.createUserWithEmailAndPassword(emailM,passM)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             String id_user = firebaseAuth.getCurrentUser().getUid();
-                            UserInformation userInformation = new UserInformation(id_user, namaM,nimM,jurusanM, phone, angkatan, role, emailM);
+                            UserInformation userInformation = new UserInformation(id_user, namaM,nimM,jurusanM, phone, angkatan, role, emailM, idUKM, ktmUrl);
                             databaseReference.child(id_user).setValue(userInformation)
                                     .addOnCompleteListener(TambahMhsActivity.this, new OnCompleteListener<Void>() {
                                         @Override
